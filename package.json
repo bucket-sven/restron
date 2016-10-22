@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "electron .",
-    "start": "npm run pack && NODE_ENV=development electron .",
+    "start": "npm run build && NODE_ENV=development electron .",
     "build": "node_modules/webpack/bin/webpack.js --progress --colors",
-    "pack": "node_modules/electron-packager/cli.js ./ restron --platform=darwin --version=1.4.4 --out=./package --overwrite --icon=./public/img/app-logo.jpg"
+    "pack": "node_modules/electron-packager/cli.js ./ restron --platform=darwin --version=1.4.4 --out=./package --overwrite --icon=~/Node/electron/todo/public/img/tray.icon"
   },
   "author": "sven",
   "license": "MIT",
