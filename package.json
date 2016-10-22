@@ -1,0 +1,31 @@
+{
+  "name": "todo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "electron .",
+    "start": "NODE_ENV=development npm run pack && electron .",
+    "pack": "node_modules/webpack/bin/webpack.js --progress --colors"
+  },
+  "author": "sven",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.4.4",
+    "material-ui": "^0.16.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-tap-event-plugin": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-es2015-spread": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "html-webpack-plugin": "^2.24.0",
+    "webpack": "^1.13.2"
+  }
+}
