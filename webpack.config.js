@@ -4,11 +4,13 @@ var fs = require('fs')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
+  // key是生成文件的路径, value是源文件路径
   entry: {
     'components/index': './src/components/index.jsx',
     'main': './src/main.jsx'
   },
 
+  // 解决__dirname和__filename路径混乱的问题
   node: {
     __filename: false,
     __dirname: false
@@ -18,7 +20,7 @@ var config = {
   target: 'atom',
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: "[name].js"
   },
 
@@ -53,7 +55,7 @@ var config = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'html/index.html',
-      inject: false, //not add js files in entry list
+      inject: false, //不添加entry列表里的文件到index.html
       template: __dirname + "/src/html/index.html" //new 一个这个插件的实例，并传入相关的参数
     })
   ]
