@@ -1,5 +1,5 @@
 {
-  "name": "todo",
+  "name": "restron",
   "version": "0.0.1",
   "description": "",
   "main": "src/main.js",
@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "electron .",
     "start": "npm run pack && NODE_ENV=development electron .",
-    "pack": "node_modules/webpack/bin/webpack.js --progress --colors"
+    "build": "node_modules/webpack/bin/webpack.js --progress --colors",
+    "pack": "node_modules/electron-packager/cli.js ./ restron --platform=darwin --version=1.4.4 --out=./package --overwrite --icon=./public/img/app-logo.jpg"
   },
   "author": "sven",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
+    "electron-packager": "^8.1.0",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-es2015-spread": "^6.8.0",
