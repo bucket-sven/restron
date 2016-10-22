@@ -5,6 +5,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 const events = window.require('events')
 const path = window.require('path')
 const fs = window.require('fs')
+const fileUtil = require('../file_util');
 
 const electron = window.require('electron')
 const {ipcRenderer, shell} = electron
@@ -34,7 +35,7 @@ class MainWindow extends React.Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.root}>
-          <img style={styles.icon} src="../../img/app-logo.jpg" />
+          <img style={styles.icon} src={fileUtil.imagePath('app-logo.jpg')} />
 
           <TextField
             hintText="请输入用户名"
