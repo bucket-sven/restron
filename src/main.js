@@ -13,9 +13,9 @@ app.on('ready', function() {
 
   mainWindow.loadURL('file://' + __dirname + '/html/index.html')
 
-  //if (env == 'development') {
+  if (env == 'development') {
     mainWindow.webContents.openDevTools()
-  //}
+  }
 
   mainWindow.on('closed', () => {
     mainWindow = null
