@@ -13,9 +13,10 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    //transparent: true,
+    //frame: false,
     icon: iconPath
   })
-
 
   //appIcon = new Tray(iconPath);
   //appIcon.setToolTip('This is my application');

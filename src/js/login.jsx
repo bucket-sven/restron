@@ -14,6 +14,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import Home from './home'
 
 let muiTheme = getMuiTheme({
   fontFamily: 'Microsoft YaHei'
@@ -69,6 +70,10 @@ class MainWindow extends React.Component {
 
   _handleRegistry() {}
   _handleLogin() {
+    ReactDOM.render(
+      <Home />,
+      document.getElementById('app')
+    );
     /*
     let options = {
       type: 'info',

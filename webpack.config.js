@@ -5,8 +5,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   // key是生成文件的路径, value是源文件路径
+  deltool: 'source-map',
   entry: {
-    'components/index': './src/components/index.jsx',
+    './js/bundle': [
+      './src/js/home.js',
+      './src/js/login.jsx'
+    ],
     'main': './src/main.jsx'
   },
 
@@ -28,7 +32,7 @@ var config = {
     loaders: [
       {
         //test: path.join(__dirname, 'es6'),
-        test: /\.jsx$/,
+        test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
