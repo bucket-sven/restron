@@ -14,7 +14,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import Home from './home'
+import Home from './home.jsx'
 
 let muiTheme = getMuiTheme({
   fontFamily: 'Microsoft YaHei'
