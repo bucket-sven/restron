@@ -29,6 +29,7 @@
     "electron-connect": "^0.6.0",
     "electron-packager": "^8.1.0",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-env": "^0.4.0",
     "gulp-run-electron": "^3.0.1",
     "gulp-util": "^3.0.7",

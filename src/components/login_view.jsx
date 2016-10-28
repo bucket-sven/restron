@@ -14,8 +14,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import Home from './home.jsx'
-import Render from './render.jsx'
-import MessageBox from './message_box.jsx'
+import Render from '../utils/render.jsx'
+import MessageBox from '../utils/message_box.jsx'
 
 let muiTheme = getMuiTheme({
   fontFamily: 'Microsoft YaHei'

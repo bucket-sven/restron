@@ -6,6 +6,7 @@ var electron = require('gulp-run-electron')
 var env = require('gulp-env')
 var shell = require('shelljs')
 var path = require('path')
+var clean = require('gulp-clean')
 
 gulp.task('webpack', (cb) => {
   webpack(webpackConfig, function(err, stats) {
@@ -34,6 +35,11 @@ gulp.task('start', ['webpack'], (cb) => {
   })
   gulp.watch("dist/**/*.js", electron.rerun);
   cb()
+})
+
+gulp.task('clean', (cb) => {
+  return gulp.src('dist')
+             .pipe(clean());
 })
 
 gulp.task('build', ['webpack'], (cb) => {
