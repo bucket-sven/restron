@@ -27,12 +27,20 @@ export default class Header extends React.Component {
       top: 0
     }
     return (
-      <header style={styles}>
-        <FloatingActionButton style={iconStyles} mini={true} onClick={this.closeWindow}>
-          <ContentAdd />
-        </FloatingActionButton>
+      <header className="tabbar">
+        <a id="close"    href="javascript: void(0)" onClick={this.closeWindow}></a>
+        <a id="maximize" href="javascript: void(0)" onClick={this.maxiWindow}></a>
+        <a id="minimize" href="javascript: void(0)" onClick={this.miniWindow}></a>
       </header>
     )
+  }
+
+  miniWindow() {
+    ipcRenderer.send('minimize-app')
+  }
+
+  maxiWindow() {
+    ipcRenderer.send('maximize-app')
   }
 
   closeWindow() {

@@ -27,7 +27,7 @@ class LoginView extends React.Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div style={styles.root}>
+        <div className="root">
           <Header />
           <LogoView />
           <LoginForm />
@@ -36,21 +36,6 @@ class LoginView extends React.Component {
     )
   }
 
-}
-
-const styles = {
-  root: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
 }
 
 export default LoginView

@@ -1,7 +1,12 @@
-header {
-  -webkit-app-region: drag;
-}
-
-header * {
-  -webkit-app-region: no-drag;
+.root {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
 }

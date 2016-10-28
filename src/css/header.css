@@ -1,0 +1,33 @@
+header {
+  -webkit-app-region: drag;
+}
+
+header * {
+  -webkit-app-region: no-drag;
+}
+
+header.tabbar {
+  height: 20px;
+  position: absolute;
+  background-color: #fedcba;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+a#close, a#minimize, a#maximize {
+  display: inline-block;
+  float: right;
+  height: 12px;
+  width: 12px;
+  margin: 5px;
+  display: block;
+  border: black 1px solid;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 6px;
+}
+
+a#close:hover, a#minimize:hover, a#maximize:hover {
+  background: black;
+}
