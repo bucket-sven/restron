@@ -53,11 +53,12 @@ export default class LoginForm extends React.Component {
     Render.render(<RegisterView />)
   }
   _handleLogin() {
-    MessageBox.info({
-      message: 'Test'
-    }, (res) => {
-      Render.render(<Home />)
-    })
+    Render.render(<Home />)
+    // MessageBox.info({
+    //   message: 'Test'
+    // }, (res) => {
+    //   Render.render(<Home />)
+    // })
   }
 }
 

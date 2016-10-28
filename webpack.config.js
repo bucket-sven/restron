@@ -2,6 +2,7 @@ var webpack = require('webpack')
 var path = require('path')
 var fs = require('fs')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -13,7 +14,8 @@ var config = {
       //'./src/js/home.jsx',
       './src/js/entry.jsx'
     ],
-    'main': './src/main.jsx'
+    'main': './src/main.jsx',
+    'css/style': './src/css/style.css'
   },
 
   // 解决__dirname和__filename路径混乱的问题
@@ -34,7 +36,7 @@ var config = {
     loaders: [
       {
         //test: path.join(__dirname, 'es6'),
-        test: /\.(jsx|js)$/,
+        test: /\.jsx$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
@@ -42,6 +44,12 @@ var config = {
           plugins: ['transform-object-rest-spread']
         }
       },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract("style-loader","css-loader")
+        //loader: 'style-loader!css-loader'
+      }
       /*
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
@@ -53,8 +61,8 @@ var config = {
 
   resolve: [
     {
-      root: __dirname + "/dist",
-      extesions: ['.css', '.scss']
+      root: path.resolve(__dirname, 'dist', 'css'),
+      extesions: ['.css', '.scss', '.jsx', '.js']
     }
   ],
 
@@ -64,6 +72,7 @@ var config = {
       inject: false, //不添加entry列表里的文件到index.html
       template: __dirname + "/src/html/index.html" //new 一个这个插件的实例，并传入相关的参数
     }),
+    new ExtractTextPlugin("[name].css")
   ]
 }
 
