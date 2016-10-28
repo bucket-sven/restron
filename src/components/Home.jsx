@@ -1,8 +1,8 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Render from '../utils/render.jsx'
-import LoginView from './login_view.jsx'
+import Render from '../utils/Render.jsx'
+import LoginView from '../containers/LoginView.jsx'
 
 export default class Home extends React.Component {
   constructor(props) {
