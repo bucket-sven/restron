@@ -26,12 +26,15 @@ export default class Header extends React.Component {
       right: 0,
       top: 0
     }
+    /*
+    <header className="tabbar">
+      <a id="close"    href="javascript: void(0)" onClick={this.closeWindow}></a>
+      <a id="maximize" href="javascript: void(0)" onClick={this.maxiWindow}></a>
+      <a id="minimize" href="javascript: void(0)" onClick={this.miniWindow}></a>
+    </header>
+    */
     return (
-      <header className="tabbar">
-        <a id="close"    href="javascript: void(0)" onClick={this.closeWindow}></a>
-        <a id="maximize" href="javascript: void(0)" onClick={this.maxiWindow}></a>
-        <a id="minimize" href="javascript: void(0)" onClick={this.miniWindow}></a>
-      </header>
+      <div></div>
     )
   }
 
