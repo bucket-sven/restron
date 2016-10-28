@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import injectTapEventPlugin from 'react-tap-event-plugin'
 
 const events = window.require('events')
 const path = window.require('path')
@@ -15,15 +14,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import Home from './home.jsx'
+import Render from './render.jsx'
+import MessageBox from './message_box.jsx'
 
 let muiTheme = getMuiTheme({
   fontFamily: 'Microsoft YaHei'
 })
 
-class MainWindow extends React.Component {
+class LoginView extends React.Component {
   constructor(props) {
     super(props)
-    injectTapEventPlugin()
 
     this.state = {
       username: '',
@@ -70,26 +70,11 @@ class MainWindow extends React.Component {
 
   _handleRegistry() {}
   _handleLogin() {
-    ReactDOM.render(
-      <Home />,
-      document.getElementById('app')
-    );
-    /*
-    let options = {
-      type: 'info',
-      buttons: ['确定'],
-      title: '登录',
-      message: this.state.username,
-      defaultId: 0,
-      cancelId: 0
-    }
-
-    dialog.showMessageBox(options, (res) => {
-      if (res == 0) {
-        console.log('OK pressed!');
-      }
+    MessageBox.info({
+      message: 'Test'
+    }, (res) => {
+      Render.render(<Home />)
     })
-    */
   }
 }
 
@@ -123,7 +108,4 @@ const styles = {
   }
 }
 
-let mainWndComponent = ReactDOM.render(
-  <MainWindow />,
-  document.getElementById('app')
-)
+export default LoginView

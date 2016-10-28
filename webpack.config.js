@@ -10,8 +10,8 @@ var config = {
   deltool: 'source-map',
   entry: {
     './js/bundle': [
-      './src/js/home.jsx',
-      './src/js/login.jsx'
+      //'./src/js/home.jsx',
+      './src/js/entry.jsx'
     ],
     'main': './src/main.jsx'
   },

@@ -5,6 +5,7 @@ var webpackConfig = require('./webpack.config')
 var electron = require('gulp-run-electron')
 var env = require('gulp-env')
 var shell = require('shelljs')
+var path = require('path')
 
 gulp.task('webpack', (cb) => {
   webpack(webpackConfig, function(err, stats) {
@@ -37,7 +38,7 @@ gulp.task('start', ['webpack'], (cb) => {
 
 gulp.task('build', ['webpack'], (cb) => {
   var platform = process.platform
-  var icon = "~/Node/electron/todo/public/img/tray.icon"
+  var icon = path.resolve(__dirname, "public", "img", "tray.icon")
   var version = '1.4.4'
   shell.exec(`node_modules/electron-packager/cli.js ./ restron --platform=${platform} --version=${version} --out=./package --overwrite --icon=${icon}`, { async: true}, function(code, output) {
     console.log("Exit with code: ", code);
