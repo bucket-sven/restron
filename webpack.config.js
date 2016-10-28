@@ -14,8 +14,7 @@ var config = {
       //'./src/js/home.jsx',
       './src/js/entry.jsx'
     ],
-    'main': './src/main.jsx',
-    'css/style': './src/css/style.css'
+    'main': './src/main.jsx'
   },
 
   // 解决__dirname和__filename路径混乱的问题
@@ -48,7 +47,7 @@ var config = {
         test: /\.css$/,
         exclude: /node_modules/,
         loader: ExtractTextPlugin.extract("style-loader","css-loader")
-        //loader: 'style-loader!css-loader'
+        //loader: 'style!css'
       }
       /*
       {
@@ -72,7 +71,7 @@ var config = {
       inject: false, //不添加entry列表里的文件到index.html
       template: __dirname + "/src/html/index.html" //new 一个这个插件的实例，并传入相关的参数
     }),
-    new ExtractTextPlugin("[name].css")
+    new ExtractTextPlugin("css/style.css")
   ]
 }
 

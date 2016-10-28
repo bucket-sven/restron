@@ -3,6 +3,8 @@ const {app, BrowserWindow, ipcMain} = electron
 const Tray = electron.Tray
 const path = require('path');
 
+require('./css/style.css')
+
 let mainWindow = null
 let appIcon;
 
