@@ -1,3 +1,7 @@
-html, body {
+header {
   -webkit-app-region: drag;
+}
+
+header * {
+  -webkit-app-region: no-drag;
 }

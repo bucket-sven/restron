@@ -15,11 +15,21 @@ export default class Home extends React.Component {
   }
 
   render() {
+    const mainStyle = {
+      position: 'absolute',
+      top: 20,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      //backgroundColor: '#cbacba'
+    }
     return (
       <MuiThemeProvider>
         <div>
           <Header />
-          <RaisedButton label="HOME" onClick={this.backHome} />
+          <div style={mainStyle}>
+            <RaisedButton label="HOME" onClick={this.backHome} />
+          </div>
         </div>
       </MuiThemeProvider>
     )

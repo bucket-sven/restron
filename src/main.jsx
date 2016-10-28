@@ -11,7 +11,7 @@ let appIcon;
 let env = process.env.NODE_ENV || 'production'
 
 app.on('ready', function() {
-  let iconPath = path.join(__dirname, "/../public/img/tray.icns")
+  let iconPath = path.join(__dirname, "/../public/img/tray.ico")
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -35,5 +35,9 @@ app.on('ready', function() {
 })
 
 app.on('window-all-closed', () => {
+  app.quit()
+})
+
+ipcMain.on('close-app', (event, arg) => {
   app.quit()
 })

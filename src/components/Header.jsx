@@ -1,9 +1,15 @@
 import React from 'react'
-import FontIcon from 'material-ui/FontIcon'
 import {blue500, red500, greenA200} from 'material-ui/styles/colors'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
+import MessageBox from '../utils/MessageBox.jsx'
+const { ipcRenderer } = require('electron')
 
 const iconStyles = {
-  marginRight: 24
+  marginRight: 24,
+  width: 10,
+  height: 10
+  //WebkitAppRegion: 'no-drag'
 }
 
 export default class Header extends React.Component {
@@ -12,13 +18,30 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const styles = {
+      height: 20,
+      position: 'absolute',
+      backgroundColor: '#fedcba',
+      left: 0,
+      right: 0,
+      top: 0
+    }
     return (
-      <div>
-        <FontIcon
-          className="muidocs-icon-action-home"
-          style={iconStyles}
-          />
-      </div>
+      <header style={styles}>
+        <FloatingActionButton style={iconStyles} mini={true} onClick={this.closeWindow}>
+          <ContentAdd />
+        </FloatingActionButton>
+      </header>
     )
+  }
+
+  closeWindow() {
+    MessageBox.confirm({
+      title: '确认关闭',
+      message: '您确认要关闭吗?'
+    }, (res) => {
+      if (res == 1)
+        ipcRenderer.send('close-app', 'all')
+    })
   }
 }

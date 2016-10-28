@@ -13,6 +13,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import LogoView from '../components/LogoView.jsx'
 import LoginForm from '../components/LoginForm.jsx'
+import Header from '../components/Header.jsx'
 
 let muiTheme = getMuiTheme({
   fontFamily: 'Microsoft YaHei'
@@ -27,6 +28,7 @@ class LoginView extends React.Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.root}>
+          <Header />
           <LogoView />
           <LoginForm />
         </div>
