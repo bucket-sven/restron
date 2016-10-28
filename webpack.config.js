@@ -3,6 +3,8 @@ var path = require('path')
 var fs = require('fs')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var NODE_ENV = process.env.NODE_ENV || 'development';
+
 var config = {
   // key是生成文件的路径, value是源文件路径
   deltool: 'source-map',
@@ -61,8 +63,23 @@ var config = {
       filename: 'html/index.html',
       inject: false, //不添加entry列表里的文件到index.html
       template: __dirname + "/src/html/index.html" //new 一个这个插件的实例，并传入相关的参数
-    })
+    }),
   ]
+}
+
+if (NODE_ENV == 'production') {
+  let conf = [new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }), new webpack.DefinePlugin({
+    "process.env": {
+      NODE_ENV: JSON.stringify(NODE_ENV)
+    }
+  })];
+  conf.forEach((c) => {
+    config.plugins.push(c)
+  })
 }
 
 module.exports = config
