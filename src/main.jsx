@@ -42,13 +42,18 @@ class Main {
   }
 
   buildAppIcon() {
-    this.appIcon = new Tray(this.iconPath);
+    if (process.platform === 'darwin') {
+      app.dock.setIcon(this.iconPath)
+      this.appIcon = new Tray(path.join(__dirname, '/../public/img/tray.png'))
+    } else {
+      this.appIcon = new Tray(this.iconPath);
+    }
     const contextMenu = Menu.buildFromTemplate([
       {label: 'show', type: 'radio'},
       {label: 'minimize', type: 'radio'},
       {label: 'click', type: 'radio', checked: true},
     ])
-    this.appIcon.setToolTip('This is my application');
+    //this.appIcon.setToolTip('This is my application');
     this.appIcon.setContextMenu(contextMenu)
     // appIcon.on('click', () => {
     //   mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
