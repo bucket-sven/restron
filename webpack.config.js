@@ -60,7 +60,7 @@ var config = {
 
   resolve: {
     root: path.resolve(__dirname, 'src'),
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.css', '.js', '.jsx']
   },
 
   plugins: [

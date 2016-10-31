@@ -3,56 +3,53 @@ const {app, Menu, BrowserWindow, ipcMain} = electron
 const Tray = electron.Tray
 const path = require('path');
 
-require('./css/header.css')
-require('./css/style.css')
-
-let mainWindow = null
-let appIcon;
-let maximized = false;
+require('css/header')
+require('css/style')
 
 let env = process.env.NODE_ENV || 'production'
-let iconPath = path.join(__dirname, "/../public/img/guitar25.png")
 
 class Main {
+
   constructor() {
+    this.iconPath = path.join(__dirname, "/../public/img/guitar25.png");
     this.initApp()
   }
 
   initApp() {
     let self = this
     app.on('ready', function() {
-      mainWindow = new BrowserWindow({
+      self.mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         //transparent: true,
         //frame: false,
-        icon: iconPath
+        icon: self.iconPath
       })
 
       self.buildAppIcon()
 
-      mainWindow.loadURL('file://' + __dirname + '/html/index.html')
+      self.mainWindow.loadURL('file://' + __dirname + '/html/index.html')
 
       if (env == 'development') {
-        mainWindow.webContents.openDevTools()
+        self.mainWindow.webContents.openDevTools()
       }
 
-      mainWindow.on('closed', () => {
-        mainWindow = null
+      self.mainWindow.on('closed', () => {
+        self.mainWindow = null
       })
       self.initEvents()
     })
   }
 
   buildAppIcon() {
-    appIcon = new Tray(iconPath);
+    this.appIcon = new Tray(this.iconPath);
     const contextMenu = Menu.buildFromTemplate([
       {label: 'show', type: 'radio'},
       {label: 'minimize', type: 'radio'},
       {label: 'click', type: 'radio', checked: true},
     ])
-    appIcon.setToolTip('This is my application');
-    appIcon.setContextMenu(contextMenu)
+    this.appIcon.setToolTip('This is my application');
+    this.appIcon.setContextMenu(contextMenu)
     // appIcon.on('click', () => {
     //   mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
     // })
