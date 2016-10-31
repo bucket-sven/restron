@@ -1,5 +1,5 @@
 const electron = require('electron')
-const {app, BrowserWindow, ipcMain} = electron
+const {app, Menu, BrowserWindow, ipcMain} = electron
 const Tray = electron.Tray
 const path = require('path');
 
@@ -11,9 +11,9 @@ let appIcon;
 let maximized = false;
 
 let env = process.env.NODE_ENV || 'production'
+let iconPath = path.join(__dirname, "/../public/img/guitar25.png")
 
 app.on('ready', function() {
-  let iconPath = path.join(__dirname, "/../public/img/tray.ico")
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -22,8 +22,7 @@ app.on('ready', function() {
     icon: iconPath
   })
 
-  //appIcon = new Tray(iconPath);
-  //appIcon.setToolTip('This is my application');
+  buildAppIcon()
 
   mainWindow.loadURL('file://' + __dirname + '/html/index.html')
 
@@ -35,6 +34,20 @@ app.on('ready', function() {
     mainWindow = null
   })
 })
+
+function buildAppIcon() {
+  appIcon = new Tray(iconPath);
+  const contextMenu = Menu.buildFromTemplate([
+    {label: 'show', type: 'radio'},
+    {label: 'minimize', type: 'radio'},
+    {label: 'click', type: 'radio', checked: true},
+  ])
+  appIcon.setToolTip('This is my application');
+  appIcon.setContextMenu(contextMenu)
+  // appIcon.on('click', () => {
+  //   mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
+  // })
+}
 
 app.on('window-all-closed', () => {
   app.quit()

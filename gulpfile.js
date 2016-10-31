@@ -44,7 +44,7 @@ gulp.task('clean', (cb) => {
 
 gulp.task('build', ['webpack'], (cb) => {
   var platform = process.platform
-  var icon = path.resolve(__dirname, "public", "img", "tray.icon")
+  var icon = path.resolve(__dirname, "public", "img", "guitar25.png")
   var version = '1.4.4'
   shell.exec(`node_modules/electron-packager/cli.js ./ restron --platform=${platform} --version=${version} --out=./package --overwrite --icon=${icon}`, { async: true}, function(code, output) {
     console.log("Exit with code: ", code);
