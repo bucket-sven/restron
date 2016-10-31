@@ -58,12 +58,10 @@ var config = {
     ]
   },
 
-  resolve: [
-    {
-      root: path.resolve(__dirname, 'dist', 'css'),
-      extesions: ['.css', '.scss', '.jsx', '.js']
-    }
-  ],
+  resolve: {
+    //root: path.resolve(__dirname, 'src'),
+    extensions: ['', '.js', '.jsx']
+  },
 
   plugins: [
     new HtmlWebpackPlugin({

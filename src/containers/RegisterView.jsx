@@ -11,8 +11,8 @@ const {dialog} = electron.remote
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import LogoView from '../components/LogoView.jsx'
-import RegisterForm from '../components/RegisterForm.jsx'
+import LogoView from '../components/LogoView'
+import RegisterForm from '../components/RegisterForm'
 
 let muiTheme = getMuiTheme({
   fontFamily: 'Microsoft YaHei'
