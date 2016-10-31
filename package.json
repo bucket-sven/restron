@@ -18,7 +18,6 @@
     "react": "^15.3.2",
     "react-desktop": "^0.2.14",
     "react-dom": "^15.3.2",
-    "react-semantic-ui": "^0.2.0",
     "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
