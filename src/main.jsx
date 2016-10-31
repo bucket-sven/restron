@@ -13,54 +13,70 @@ let maximized = false;
 let env = process.env.NODE_ENV || 'production'
 let iconPath = path.join(__dirname, "/../public/img/guitar25.png")
 
-app.on('ready', function() {
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    //transparent: true,
-    //frame: false,
-    icon: iconPath
-  })
-
-  buildAppIcon()
-
-  mainWindow.loadURL('file://' + __dirname + '/html/index.html')
-
-  if (env == 'development') {
-    mainWindow.webContents.openDevTools()
+class Main {
+  constructor() {
+    this.initApp()
   }
 
-  mainWindow.on('closed', () => {
-    mainWindow = null
-  })
-})
+  initApp() {
+    let self = this
+    app.on('ready', function() {
+      mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        //transparent: true,
+        //frame: false,
+        icon: iconPath
+      })
 
-function buildAppIcon() {
-  appIcon = new Tray(iconPath);
-  const contextMenu = Menu.buildFromTemplate([
-    {label: 'show', type: 'radio'},
-    {label: 'minimize', type: 'radio'},
-    {label: 'click', type: 'radio', checked: true},
-  ])
-  appIcon.setToolTip('This is my application');
-  appIcon.setContextMenu(contextMenu)
-  // appIcon.on('click', () => {
-  //   mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
-  // })
+      self.buildAppIcon()
+
+      mainWindow.loadURL('file://' + __dirname + '/html/index.html')
+
+      if (env == 'development') {
+        mainWindow.webContents.openDevTools()
+      }
+
+      mainWindow.on('closed', () => {
+        mainWindow = null
+      })
+      self.initEvents()
+    })
+  }
+
+  buildAppIcon() {
+    appIcon = new Tray(iconPath);
+    const contextMenu = Menu.buildFromTemplate([
+      {label: 'show', type: 'radio'},
+      {label: 'minimize', type: 'radio'},
+      {label: 'click', type: 'radio', checked: true},
+    ])
+    appIcon.setToolTip('This is my application');
+    appIcon.setContextMenu(contextMenu)
+    // appIcon.on('click', () => {
+    //   mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
+    // })
+  }
+
+  initEvents() {
+    app.on('window-all-closed', () => {
+      app.quit()
+    })
+
+    /*
+    ipcMain.on('minimize-app', (event, arg) => {
+      mainWindow.minimize()
+    })
+
+    ipcMain.on('maximize-app', (event, arg) => {
+      mainWindow.maximize()
+    })
+
+    ipcMain.on('close-app', (event, arg) => {
+      app.quit()
+    })
+    */
+  }
 }
 
-app.on('window-all-closed', () => {
-  app.quit()
-})
-
-ipcMain.on('minimize-app', (event, arg) => {
-  mainWindow.minimize()
-})
-
-ipcMain.on('maximize-app', (event, arg) => {
-  mainWindow.maximize()
-})
-
-ipcMain.on('close-app', (event, arg) => {
-  app.quit()
-})
+new Main()
