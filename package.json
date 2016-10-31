@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development electron .",
-    "start": "gulp webpack && npm run dev",
-    "pack": "node_modules/electron-packager/cli.js ./ restron --platform=darwin --version=1.4.4 --out=./package --overwrite --icon=~/Node/electron/todo/public/img/tray.icon"
+    "start": "gulp start",
+    "pack": "NODE_ENV=production gulp build"
   },
   "author": "sven",
   "license": "MIT",
