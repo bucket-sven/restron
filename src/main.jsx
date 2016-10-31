@@ -62,7 +62,11 @@ class Main {
 
   initEvents() {
     app.on('window-all-closed', () => {
-      app.quit()
+      if(process.platform === 'darwin') {
+        app.dock.hide()
+      } else {
+        app.quit()
+      }
     })
 
     /*
