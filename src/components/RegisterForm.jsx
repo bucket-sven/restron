@@ -4,9 +4,9 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
 import Home from './Home'
-import LoginView from '../containers/LoginView'
-import Render from '../utils/Render'
-import MessageBox from '../utils/MessageBox'
+import LoginView from 'containers/LoginView'
+import Render from 'utils/Render'
+import MessageBox from 'utils/MessageBox'
 
 export default class LoginForm extends React.Component {
   constructor(props) {

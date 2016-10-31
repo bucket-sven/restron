@@ -59,7 +59,7 @@ var config = {
   },
 
   resolve: {
-    //root: path.resolve(__dirname, 'src'),
+    root: path.resolve(__dirname, 'src'),
     extensions: ['', '.js', '.jsx']
   },
 

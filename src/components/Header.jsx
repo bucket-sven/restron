@@ -2,7 +2,7 @@ import React from 'react'
 import {blue500, red500, greenA200} from 'material-ui/styles/colors'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
-import MessageBox from '../utils/MessageBox'
+import MessageBox from 'utils/MessageBox'
 const { ipcRenderer } = require('electron')
 
 const iconStyles = {
