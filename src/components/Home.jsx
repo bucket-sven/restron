@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Render from 'utils/Render'
 import LoginView from 'containers/LoginView'
 import Header from './Header'
+import CusMenu from './CusMenu'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -27,9 +28,14 @@ export default class Home extends React.Component {
       <MuiThemeProvider>
         <div>
           <Header />
-          <div style={mainStyle}>
-            <RaisedButton label="HOME" onClick={this.backHome} />
-          </div>
+          <CusMenu />
+          {
+            /*
+            <div style={mainStyle}>
+              <RaisedButton label="HOME" onClick={this.backHome} />
+            </div>
+            */
+          }
         </div>
       </MuiThemeProvider>
     )

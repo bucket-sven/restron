@@ -6,6 +6,8 @@ const path = require('path');
 require('css/header')
 require('css/style')
 
+import "antd/dist/antd.css"
+
 let env = process.env.NODE_ENV || 'production'
 
 class Main {
