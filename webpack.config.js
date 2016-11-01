@@ -67,7 +67,7 @@ var config = {
     new HtmlWebpackPlugin({
       filename: 'html/index.html',
       inject: false, //不添加entry列表里的文件到index.html
-      template: __dirname + "/src/html/index.html" //new 一个这个插件的实例，并传入相关的参数
+      template: path.join(__dirname, "/src/html/index.html") //new 一个这个插件的实例，并传入相关的参数
     }),
     new ExtractTextPlugin("css/style.css")
   ]
