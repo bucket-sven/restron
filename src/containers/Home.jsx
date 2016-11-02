@@ -3,8 +3,9 @@ import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Render from 'utils/Render'
 import LoginView from 'containers/LoginView'
-import Header from './Header'
-import CusMenu from './CusMenu'
+import Header from 'components/Header'
+import CusMenu from 'components/CusMenu'
+import Search from 'components/Search'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class Home extends React.Component {
   }
 
   render() {
+    /*
     const mainStyle = {
       position: 'absolute',
       top: 20,
@@ -24,11 +26,25 @@ export default class Home extends React.Component {
       bottom: 0,
       //backgroundColor: '#cbacba'
     }
+    */
+    const style = {
+      flexDirection: 'row',
+      flex: 1,
+      display: 'inline-flex'
+    }
+    const searchStyle = {
+      width: 200,
+      marginLeft: 10,
+      marginTop: 10
+    }
     return (
       <MuiThemeProvider>
-        <div>
+        <div style={style}>
           <Header />
           <CusMenu />
+          <div style={{}}>
+            <Search style={searchStyle}/>
+          </div>
           {
             /*
             <div style={mainStyle}>

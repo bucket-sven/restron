@@ -11,7 +11,7 @@ const {dialog} = electron.remote
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import LogoView from 'components/LogoView'
+import LogoWidget from 'components/LogoWidget'
 import LoginForm from 'components/LoginForm'
 import Header from 'components/Header'
 
@@ -29,7 +29,7 @@ class LoginView extends React.Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="root">
           <Header />
-          <LogoView />
+          <LogoWidget />
           <LoginForm />
         </div>
       </MuiThemeProvider>
