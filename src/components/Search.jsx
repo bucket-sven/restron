@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import Input from 'antd/lib/input'
 import Button from 'antd/lib/button'
 import classNames from 'classnames'
+
+const http = require('net/Http')
+const Urls = require('constants/Urls')
 const InputGroup = Input.Group
+const qs = require('querystring')
 
 export default class Search extends Component {
   constructor(props) {
@@ -19,7 +23,18 @@ export default class Search extends Component {
     })
   }
   handleSearch() {
-    console.log('handle search');
+    //console.log('handle search');
+    let body = {
+      s: this.state.value,
+      type: 1
+    }
+    http.post({
+      url: Urls.NET_EASE_BASE_URL + Urls.SEARCH_MUSIC_URL,
+      headers: Urls.NET_EASE_HEADER,
+      body: qs.stringify(body)
+    }, function(data) {
+      console.log(data);
+    })
   }
 
   render() {
@@ -36,9 +51,9 @@ export default class Search extends Component {
       <div className="ant-search-input-wrapper" style={style} >
         <InputGroup className={searchCls}>
           <Input placeholder={placeholder} value={this.state.value} onChange={this.handleSearchChange.bind(this)}
-            onPressEnter={this.handleSearch} />
+            onPressEnter={this.handleSearch.bind(this)} />
           <div className="ant-input-group-wrap">
-            <Button icon="search" className={btnCls} size={size} onClick={this.handleSearch}/>
+            <Button icon="search" className={btnCls} size={size} onClick={this.handleSearch.bind(this)}/>
           </div>
         </InputGroup>
       </div>
