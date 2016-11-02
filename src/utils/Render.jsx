@@ -9,4 +9,6 @@ let Render = {
   }
 }
 
-export default Render;
+let render = Render.render
+
+export { Render as default, render }

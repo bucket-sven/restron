@@ -8,13 +8,15 @@ export default class Search extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: '123',
+      value: '',
       focus: false
     }
   }
 
-  handleSearchChange(){
-    console.log('handle search change');
+  handleSearchChange(e){
+    this.setState({
+      value: e.target.value
+    })
   }
   handleSearch() {
     console.log('handle search');
@@ -33,7 +35,7 @@ export default class Search extends Component {
     return (
       <div className="ant-search-input-wrapper" style={style} >
         <InputGroup className={searchCls}>
-          <Input placeholder={placeholder} value={this.state.value} onChange={this.handleSearchChange}
+          <Input placeholder={placeholder} value={this.state.value} onChange={this.handleSearchChange.bind(this)}
             onPressEnter={this.handleSearch} />
           <div className="ant-input-group-wrap">
             <Button icon="search" className={btnCls} size={size} onClick={this.handleSearch}/>
