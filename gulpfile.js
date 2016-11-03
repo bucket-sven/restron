@@ -7,6 +7,7 @@ var env = require('gulp-env')
 var shell = require('shelljs')
 var path = require('path')
 var clean = require('gulp-clean')
+var electronInfo = require('electron/package.json')
 
 gulp.task('webpack', (cb) => {
   webpack(webpackConfig, function(err, stats) {
@@ -45,8 +46,7 @@ gulp.task('clean', (cb) => {
 gulp.task('build', ['webpack'], (cb) => {
   var platform = process.platform
   var icon = path.resolve(__dirname, "public", "img", "logo.icns")
-  var version = '1.4.4'
-  shell.exec(`node_modules/electron-packager/cli.js ./ restron --platform=${platform} --version=${version} --out=./package --overwrite --icon=${icon} --asar=true`, { async: true}, function(code, output) {
+  shell.exec(`node_modules/electron-packager/cli.js ./ restron --platform=${platform} --version=${electronInfo.version} --out=./package --overwrite --icon=${icon} --asar=true`, { async: true}, function(code, output) {
     if (code === 0) {
       console.log("Package finished.");
     } else{
