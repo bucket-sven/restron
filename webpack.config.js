@@ -12,7 +12,7 @@ var config = {
   entry: {
     './js/bundle': [
       //'./src/js/home.jsx',
-      './src/js/entry.jsx'
+      './src/entry.jsx'
     ],
     'main': './src/main.jsx'
   },
