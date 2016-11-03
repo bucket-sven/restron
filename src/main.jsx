@@ -30,7 +30,7 @@ class Main {
 
       self.buildAppIcon()
 
-      self.mainWindow.loadURL('file://' + __dirname + '/html/index.html')
+      self.mainWindow.loadURL('file://' + __dirname + '/index.html')
 
       if (env == 'development') {
         self.mainWindow.webContents.openDevTools()

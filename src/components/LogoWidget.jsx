@@ -7,7 +7,7 @@ export default class LogoView extends React.Component {
 
   render() {
     return (
-      <img style={styles.icon} src="../../public/img/app-logo.jpg"/>
+      <img style={styles.icon} src="../public/img/app-logo.jpg"/>
     )
   }
 }

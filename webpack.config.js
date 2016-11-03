@@ -10,10 +10,7 @@ var config = {
   // key是生成文件的路径, value是源文件路径
   deltool: 'source-map',
   entry: {
-    './js/bundle': [
-      //'./src/js/home.jsx',
-      './src/entry.jsx'
-    ],
+    'bundle': './src/entry.jsx',
     'main': './src/main.jsx'
   },
 
@@ -65,9 +62,9 @@ var config = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'html/index.html',
+      filename: 'index.html',
       inject: false, //不添加entry列表里的文件到index.html
-      template: path.join(__dirname, "/src/html/index.html") //new 一个这个插件的实例，并传入相关的参数
+      template: path.join(__dirname, "/src/index.html") //new 一个这个插件的实例，并传入相关的参数
     }),
     new ExtractTextPlugin("css/style.css")
   ]
