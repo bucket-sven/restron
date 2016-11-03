@@ -4,7 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Render from 'utils/Render'
 import LoginView from 'containers/LoginView'
 import Header from 'components/Header'
-import CusMenu from 'components/CusMenu'
+import AppMenu from 'components/AppMenu'
 import Search from 'components/Search'
 
 export default class Home extends React.Component {
@@ -41,7 +41,7 @@ export default class Home extends React.Component {
       <MuiThemeProvider>
         <div style={style}>
           <Header />
-          <CusMenu />
+          <AppMenu />
           <div style={{}}>
             <Search style={searchStyle}/>
           </div>

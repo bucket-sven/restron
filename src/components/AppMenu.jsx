@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Menu from 'antd/lib/menu'
 const SubMenu = Menu.SubMenu
 
-export default class CusMenu extends Component {
+export default class AppMenu extends Component {
   constructor(props) {
     super(props)
   }
