@@ -1,11 +1,21 @@
+const Client = require('node-rest-client').Client
+const client = new Client()
 module.exports = {
   get: function(options = {}, callback, err_callback) {
     options.method = "GET"
     this.request(options.url, options, callback, err_callback)
   },
+
+  /*
   post: function(options = {}, callback, err_callback) {
     options.method = "POST"
     this.request(options, callback)
+  },
+  */
+  post: function(options, callback) {
+    client.post(options.url, options, function(data, resp) {
+      callback(data);
+    })
   },
 
   request: function(options = {}, callback, err_callback) {

@@ -31,9 +31,9 @@ export default class Search extends Component {
     http.post({
       url: Urls.NET_EASE_BASE_URL + Urls.SEARCH_MUSIC_URL,
       headers: Urls.NET_EASE_HEADER,
-      body: qs.stringify(body)
+      data: qs.stringify(body)
     }, function(data) {
-      console.log(data);
+      console.log(data.toString());
     })
   }
 
