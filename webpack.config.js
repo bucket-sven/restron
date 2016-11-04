@@ -3,12 +3,13 @@ var path = require('path')
 var fs = require('fs')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var validate = require('webpack-validator')
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = {
   // key是生成文件的路径, value是源文件路径
-  deltool: 'source-map',
+  devtool: 'source-map',
   entry: {
     'bundle': './src/entry.jsx',
     'main': './src/main.jsx'
@@ -85,4 +86,4 @@ if (NODE_ENV == 'production') {
   })
 }
 
-module.exports = config
+module.exports = validate(config)
