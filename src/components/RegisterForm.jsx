@@ -3,8 +3,6 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-import Home from 'containers/Home'
-import LoginView from 'containers/LoginView'
 import { redirect } from 'utils/Render'
 import MessageBox from 'utils/MessageBox'
 

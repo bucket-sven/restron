@@ -3,10 +3,8 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-import Home from 'containers/Home'
 import { redirect } from 'utils/Render'
 import MessageBox from 'utils/MessageBox'
-import RegisterView from 'containers/RegisterView'
 
 export default class LoginForm extends React.Component {
   constructor(props) {

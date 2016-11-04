@@ -3,7 +3,7 @@ import Input from 'antd/lib/input'
 import Button from 'antd/lib/button'
 import classNames from 'classnames'
 
-const http = require('net/Http')
+const http = require('utils/Http')
 const Urls = require('constants/Urls')
 const InputGroup = Input.Group
 const qs = require('querystring')

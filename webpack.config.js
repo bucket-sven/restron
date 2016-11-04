@@ -8,8 +8,9 @@ var validate = require('webpack-validator')
 var NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = {
-  // key是生成文件的路径, value是源文件路径
   devtool: 'source-map',
+
+  // key是生成文件的路径, value是源文件路径
   entry: {
     'bundle': './src/entry.jsx',
     'main': './src/main.jsx'
@@ -61,6 +62,8 @@ var config = {
     extensions: ['', '.css', '.js', '.jsx']
   },
 
+  watch: NODE_ENV === 'development',
+
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -69,6 +72,7 @@ var config = {
     }),
     new ExtractTextPlugin("css/style.css")
   ]
+
 }
 
 if (NODE_ENV == 'production') {

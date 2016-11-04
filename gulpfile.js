@@ -19,11 +19,10 @@ gulp.task('webpack', (cb) => {
       chunks: false,
       chunkModules: false
     }))
-    cb();
   })
 })
 
-gulp.task('start', ['webpack'], (cb) => {
+gulp.task('start', (cb) => {
   const envs = env.set({
     NODE_ENV: process.env.NODE_ENV || 'development'
   })
@@ -31,11 +30,11 @@ gulp.task('start', ['webpack'], (cb) => {
       .pipe(envs)
       .pipe(electron(['--cli-arguments', '--another'], {cwd: __dirname}))
 
-  gulp.watch(['./src/**/*.jsx', './src/**/*.js']).on('change', (e) => {
-    gulp.start('webpack')
-  })
-  //gulp.watch("dist/**/*.js", electron.rerun);
-  cb()
+  // gulp.watch(['./src/**/*.jsx', './src/**/*.js']).on('change', (e) => {
+  //   gulp.start('webpack')
+  // })
+  // gulp.watch("dist/**/*.js", electron.rerun);
+  // cb()
 })
 
 gulp.task('clean', (cb) => {
