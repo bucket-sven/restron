@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 import Home from 'containers/Home'
 import LoginView from 'containers/LoginView'
-import { render } from 'utils/Render'
+import { redirect } from 'utils/Render'
 import MessageBox from 'utils/MessageBox'
 
 export default class LoginForm extends React.Component {
@@ -60,7 +60,8 @@ export default class LoginForm extends React.Component {
 
   _handleRegistry() {}
   _handleCancel() {
-    render(<LoginView />)
+    //render(<LoginView />)
+    redirect('#/')
   }
 }
 

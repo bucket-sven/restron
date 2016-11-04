@@ -1,8 +1,8 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Render from 'utils/Render'
 import LoginView from 'containers/LoginView'
+import { redirect } from 'utils/Render'
 import Header from 'components/Header'
 import AppMenu from 'components/AppMenu'
 import Search from 'components/Search'
@@ -12,8 +12,8 @@ export default class Home extends React.Component {
     super(props)
   }
 
-  backHome() {
-    Render.render(<LoginView />)
+  backLogin() {
+    redirect("#/login")
   }
 
   render() {
@@ -45,6 +45,7 @@ export default class Home extends React.Component {
           <div style={{}}>
             <Search style={searchStyle}/>
           </div>
+          <a href="#/">Login</a>
           {
             /*
             <div style={mainStyle}>

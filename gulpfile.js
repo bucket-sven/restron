@@ -34,7 +34,7 @@ gulp.task('start', ['webpack'], (cb) => {
   gulp.watch(['./src/**/*.jsx', './src/**/*.js']).on('change', (e) => {
     gulp.start('webpack')
   })
-  gulp.watch("dist/**/*.js", electron.rerun);
+  //gulp.watch("dist/**/*.js", electron.rerun);
   cb()
 })
 
