@@ -6,14 +6,25 @@ import { redirect } from 'utils/Render'
 import Header from 'components/Header'
 import AppMenu from 'components/AppMenu'
 import Search from 'components/Search'
+import SongList from 'components/SongList'
 
-export default class Home extends React.Component {
+export default class HomeView extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {}
   }
 
-  backLogin() {
-    redirect("#/login")
+  handleSearch(data) {
+    console.log(data);
+    if (data && data.result) {
+      this.setState({
+        songs: data.result.songs || []
+      })
+    } else {
+      this.setState({
+        songs: []
+      })
+    }
   }
 
   render() {
@@ -42,17 +53,15 @@ export default class Home extends React.Component {
         <div style={style}>
           <Header />
           <AppMenu />
-          <div style={{}}>
-            <Search style={searchStyle}/>
-          </div>
-          <a href="#/">Login</a>
-          {
-            /*
-            <div style={mainStyle}>
-              <RaisedButton label="HOME" onClick={this.backHome} />
+          <div>
+            <div style={{display: 'inline-flex'}}>
+              <Search style={searchStyle} callback={this.handleSearch.bind(this)} />
+              <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
-            */
-          }
+            <div>
+              <SongList songs={this.state.songs} />
+            </div>
+          </div>
         </div>
       </MuiThemeProvider>
     )

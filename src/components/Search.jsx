@@ -24,6 +24,7 @@ export default class Search extends Component {
   }
   handleSearch() {
     //console.log('handle search');
+    let callback = this.props.callback
     let body = {
       s: this.state.value,
       type: 1
@@ -33,7 +34,9 @@ export default class Search extends Component {
       headers: Urls.NET_EASE_HEADER,
       data: qs.stringify(body)
     }, function(data) {
-      console.log(data.toString());
+      let str = JSON.parse(data.toString())
+      if (callback) callback(str)
+      else console.log(str.result.songs[0]);
     })
   }
 
