@@ -39,6 +39,8 @@ export default class HomeView extends React.Component {
       //backgroundColor: '#cbacba'
     }
     */
+    const { searchSong, songs } = this.props
+    console.log('+++++++++++');
     const style = {
       flexDirection: 'row',
       flex: 1,
@@ -56,11 +58,11 @@ export default class HomeView extends React.Component {
           <AppMenu />
           <div>
             <div style={{display: 'inline-flex'}}>
-              <Search style={searchStyle} callback={this.handleSearch.bind(this)} />
+              <Search style={searchStyle} callback={searchSong} />
               <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
             <div>
-              <SongList songs={this.state.songs} total={this.state.total} />
+              <SongList songs={songs} total={this.state.total} />
             </div>
           </div>
         </div>

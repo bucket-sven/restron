@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as Actions from '../actions'
+//import * as Actions from '../actions'
 import { bindActionCreators } from 'redux'
 import { Router, Route, hashHistory } from 'react-router'
 import LoginView from 'views/LoginView'
-import HomeView from 'views/HomeView'
+import HomeViewBinder from 'binders/HomeViewBinder'
 import RegisterView from 'views/RegisterView'
 import configureStore from 'store/configureStore'
 import { Provider } from 'react-redux'
@@ -19,7 +19,7 @@ class App extends Component {
         <Provider store={store}>
           <Router history={hashHistory}>
             <Route path="/" component={LoginView} />
-            <Route path="/home" component={HomeView} />
+            <Route path="/home" component={HomeViewBinder} />
             <Route path="/register" component={RegisterView} />
           </Router>
         </Provider>
