@@ -6,21 +6,25 @@ import { Router, Route, hashHistory } from 'react-router'
 import LoginView from 'views/LoginView'
 import HomeView from 'views/HomeView'
 import RegisterView from 'views/RegisterView'
-import configureStore from './configureStore'
+import configureStore from 'store/configureStore'
 import { Provider } from 'react-redux'
+import DevTools from './DevTools'
 
 let store = configureStore()
 
 class App extends Component {
   render() {
     return(
-      <Provider store={store}>
-        <Router history={hashHistory}>
-          <Route path="/" component={LoginView} />
-          <Route path="/home" component={HomeView} />
-          <Route path="/register" component={RegisterView} />
-        </Router>
-      </Provider>
+      <div>
+        <Provider store={store}>
+          <Router history={hashHistory}>
+            <Route path="/" component={LoginView} />
+            <Route path="/home" component={HomeView} />
+            <Route path="/register" component={RegisterView} />
+          </Router>
+        </Provider>
+        <DevTools store={store} />
+      </div>
     )
   }
 }
