@@ -1,7 +1,7 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import LoginView from 'containers/LoginView'
+import LoginView from 'views/LoginView'
 import { redirect } from 'utils/Render'
 import Header from 'components/Header'
 import AppMenu from 'components/AppMenu'
