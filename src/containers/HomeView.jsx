@@ -18,7 +18,8 @@ export default class HomeView extends React.Component {
     console.log(data);
     if (data && data.result) {
       this.setState({
-        songs: data.result.songs || []
+        songs: data.result.songs || [],
+        total: data.result.songCount
       })
     } else {
       this.setState({
@@ -59,7 +60,7 @@ export default class HomeView extends React.Component {
               <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
             <div>
-              <SongList songs={this.state.songs} />
+              <SongList songs={this.state.songs} total={this.state.total} />
             </div>
           </div>
         </div>
