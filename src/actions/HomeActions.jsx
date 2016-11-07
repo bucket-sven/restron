@@ -5,7 +5,7 @@ import {
 
 var http = require('utils/Http')
 
-function songList2(data) {
+function searchRequest(data) {
   return {
     type: SEARCH_SONG,
     data: data
@@ -13,8 +13,6 @@ function songList2(data) {
 }
 
 export function songList(oldState) {
-  console.log(oldState);
-  console.log('search................');
   return dispatch => {
     return http.searchSong({
       keyword: oldState.keyword,
@@ -26,7 +24,7 @@ export function songList(oldState) {
         keyword: oldState.keyword,
         result: res
       }
-      dispatch(songList2(d))
+      dispatch(searchRequest(d))
     })
   }
 }

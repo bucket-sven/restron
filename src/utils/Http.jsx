@@ -49,7 +49,8 @@ module.exports = {
     let body = {
       s: options.keyword || '',
       limit: options.limit || 10,
-      type: 1
+      type: 1,
+      offset: ((options.page || 1) - 1) * 10
     }
     let opt =  {
       url: Urls.NET_EASE_BASE_URL + Urls.SEARCH_MUSIC_URL,

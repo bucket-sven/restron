@@ -31,8 +31,10 @@ export default class Search extends Component {
   handleSearch() {
     //console.log('handle search');
     let callback = this.props.callback
+    let data = this.props.data
+    data.page = 1
     if(callback) {
-      callback(this.props.data)
+      callback(data)
     }
     /*
     let body = {

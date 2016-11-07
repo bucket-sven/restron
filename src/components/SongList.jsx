@@ -7,9 +7,19 @@ export default class SongList extends Component {
   }
 
   pagination() {
+    let onChanged = this.props.onChanged
+    let self = this
     return {
       total: this.props.total,
-      defaultPageSize: this.props.pageSize
+      defaultPageSize: this.props.pageSize,
+      current: self.props.data.page,
+      onChange(current) {
+        if(onChanged) {
+          let data = self.props.data
+          data.page = current
+          onChanged(data)
+        }
+      }
     }
   }
 
@@ -24,7 +34,7 @@ export default class SongList extends Component {
     }]
 
     return (
-      <Table columns={columns} dataSource={this.props.songs} pagination={this.pagination()} />
+      <Table columns={columns} dataSource={this.props.songs} pagination={this.pagination.call(this)} />
     )
   }
 

@@ -14,20 +14,6 @@ export default class HomeView extends React.Component {
     this.state = {}
   }
 
-  handleSearch(data) {
-    console.log(data);
-    if (data && data.result) {
-      this.setState({
-        songs: data.result.songs || [],
-        total: data.result.songCount
-      })
-    } else {
-      this.setState({
-        songs: []
-      })
-    }
-  }
-
   render() {
     /*
     const mainStyle = {
@@ -66,7 +52,7 @@ export default class HomeView extends React.Component {
               <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
             <div>
-              <SongList songs={result.songs} data={data} total={result.songCount} />
+              <SongList songs={result.songs} onChanged={songList} data={data} total={result.songCount} />
             </div>
           </div>
         </div>
