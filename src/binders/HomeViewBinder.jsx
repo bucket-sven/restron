@@ -6,7 +6,8 @@ import * as HomeViewActions from 'actions/SearchActions'
 function mapStateToProps(state) {
   return {
     //songList 为绑定的reducer名称, 即页面中state下的名称，songs为组件中使用的名称
-    songs: state.songList
+    songs: state.songList,
+    keyword: state.keywordChange
   }
 }
 

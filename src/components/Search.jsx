@@ -18,10 +18,16 @@ export default class Search extends Component {
   }
 
   handleSearchChange(e){
+    let value = e.target.value
     this.setState({
-      value: e.target.value
+      value: value
     })
+    let onChange = this.props.onChange
+    if(onChange) {
+      onChange(value)
+    }
   }
+
   handleSearch() {
     //console.log('handle search');
     let callback = this.props.callback
@@ -58,7 +64,7 @@ export default class Search extends Component {
     return (
       <div className="ant-search-input-wrapper" style={style} >
         <InputGroup className={searchCls}>
-          <Input placeholder={placeholder} value={this.state.value} onChange={this.handleSearchChange.bind(this)}
+          <Input placeholder={placeholder} defaultValue={this.props.defaultValue} onChange={this.handleSearchChange.bind(this)}
             onPressEnter={this.handleSearch.bind(this)} />
           <div className="ant-input-group-wrap">
             <Button icon="search" className={btnCls} size={size} onClick={this.handleSearch.bind(this)}/>

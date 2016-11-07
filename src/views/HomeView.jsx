@@ -39,7 +39,7 @@ export default class HomeView extends React.Component {
       //backgroundColor: '#cbacba'
     }
     */
-    let { songList, songs } = this.props
+    let { songList, songs, keyword, keywordChange } = this.props
     const style = {
       flexDirection: 'row',
       flex: 1,
@@ -50,6 +50,7 @@ export default class HomeView extends React.Component {
       marginLeft: 10,
       marginTop: 10
     }
+
     return (
       <MuiThemeProvider>
         <div style={style}>
@@ -57,7 +58,7 @@ export default class HomeView extends React.Component {
           <AppMenu />
           <div>
             <div style={{display: 'inline-flex'}}>
-              <Search style={searchStyle} callback={songList} />
+              <Search style={searchStyle} defaultValue={keyword} onChange={keywordChange} callback={songList} />
               <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
             <div>

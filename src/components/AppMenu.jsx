@@ -13,9 +13,13 @@ export default class AppMenu extends Component {
         style={{width:240}}
         mode="inline"
         >
-        <Menu.Item>我的信息</Menu.Item>
+        <Menu.Item>
+          <a href='#/'>登录</a>
+        </Menu.Item>
         <SubMenu title="歌单">
-          <Menu.Item>歌单一</Menu.Item>
+          <Menu.Item>
+            <a href='#/home'>首页</a>
+          </Menu.Item>
         </SubMenu>
       </Menu>
     )

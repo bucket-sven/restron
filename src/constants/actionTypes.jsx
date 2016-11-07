@@ -1,1 +1,2 @@
 export const SEARCH_SONG = 'SEARCH_SONG'
+export const KEYWORD_CHANGE = 'KEYWORD_CHANGE'
