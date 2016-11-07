@@ -6,7 +6,7 @@ const Urls = require('constants/Urls')
 var qs = require('querystring')
 var http = require('utils/Http')
 
-export default function songList(state = [], action) {
+export default function songList(state = {}, action) {
   /*
   let body = {
     s: 'tank',
@@ -26,7 +26,7 @@ export default function songList(state = [], action) {
       // console.log('----------------------');
       // return [{id: 3, name: '123'}]
       // console.log(action.songs);
-      return action.songs
+      return action.data
     default:
       return state
   }

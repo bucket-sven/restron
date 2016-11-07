@@ -5,10 +5,10 @@ import {
 
 var http = require('utils/Http')
 
-function songList2(songs) {
+function songList2(data) {
   return {
     type: SEARCH_SONG,
-    songs: songs
+    data: data
   }
 }
 
@@ -17,7 +17,7 @@ export function songList(keyword) {
     return http.searchSong({
       keyword: keyword}
     ).then(data => {
-      let d = JSON.parse(data.toString()).result.songs
+      let d = JSON.parse(data.toString()).result
       dispatch(songList2(d))
     })
   }

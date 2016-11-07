@@ -39,7 +39,7 @@ export default class HomeView extends React.Component {
       //backgroundColor: '#cbacba'
     }
     */
-    let { songList, songs, keyword, keywordChange } = this.props
+    let { songList, data, keyword, keywordChange } = this.props
     const style = {
       flexDirection: 'row',
       flex: 1,
@@ -62,7 +62,7 @@ export default class HomeView extends React.Component {
               <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
             <div>
-              <SongList songs={songs} total={this.state.total} />
+              <SongList songs={data.songs} total={data.songCount} />
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default class HomeView extends React.Component {
 }
 
 HomeView.propTypes = {
-  songs: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
   songList: PropTypes.func.isRequired
 }
 
