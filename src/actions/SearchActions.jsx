@@ -3,10 +3,23 @@ import {
   KEYWORD_CHANGE
 } from 'constants/actionTypes'
 
-export function songList(keyword) {
+var http = require('utils/Http')
+
+function songList2(songs) {
   return {
     type: SEARCH_SONG,
-    keyword
+    songs: songs
+  }
+}
+
+export function songList(keyword) {
+  return dispatch => {
+    return http.searchSong({
+      keyword: keyword}
+    ).then(data => {
+      let d = JSON.parse(data.toString()).result.songs
+      dispatch(songList2(d))
+    })
   }
 }
 

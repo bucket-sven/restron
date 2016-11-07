@@ -1,5 +1,7 @@
 const Client = require('node-rest-client').Client
 const client = new Client()
+let Urls = require('constants/Urls')
+let qs = require('querystring')
 module.exports = {
   get: function(options = {}, callback, err_callback) {
     options.method = "GET"
@@ -41,5 +43,19 @@ module.exports = {
         console.error(err);
       }
     })
+  },
+
+  searchSong: function(options = {}) {
+    let body = {
+      s: options.keyword || '',
+      limit: options.limit || 10,
+      type: 1
+    }
+    let opt =  {
+      url: Urls.NET_EASE_BASE_URL + Urls.SEARCH_MUSIC_URL,
+      headers: Urls.NET_EASE_HEADER,
+      data: qs.stringify(body)
+    }
+    return this.post(opt)
   }
 }

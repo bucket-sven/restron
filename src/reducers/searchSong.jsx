@@ -24,10 +24,9 @@ export default function songList(state = [], action) {
   switch (action.type) {
     case SEARCH_SONG:
       // console.log('----------------------');
-      // console.log(state);
-      // return state
-      let keyword = action.keyword
-      return [{id: 1, name: '123'}]
+      // return [{id: 3, name: '123'}]
+      // console.log(action.songs);
+      return action.songs
     default:
       return state
   }
