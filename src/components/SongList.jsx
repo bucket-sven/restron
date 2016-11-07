@@ -7,20 +7,34 @@ export default class SongList extends Component {
   }
 
   pagination() {
-    let onChanged = this.props.onChanged
-    let self = this
+    let onPageChanged = this.props.onPageChanged
+    let result = this.getResult()
+    let data = this.getData()
     return {
-      total: this.props.total,
-      defaultPageSize: this.props.pageSize,
-      current: self.props.data.page,
+      total: result.songCount,
+      defaultPageSize: data.pageSize,
+      current: data.page,
       onChange(current) {
-        if(onChanged) {
-          let data = self.props.data
+        if(onPageChanged) {
           data.page = current
-          onChanged(data)
+          onPageChanged(data)
         }
       }
     }
+  }
+
+  getData() {
+    let data = this.props.data
+    return data
+  }
+
+  getResult() {
+    let result = {}
+    let data = this.getData()
+    if(data.result) {
+      result = data.result
+    }
+    return result
   }
 
   genList() {
@@ -32,9 +46,10 @@ export default class SongList extends Component {
       dataIndex: 'album',
       render: album => album ? album.name : ''
     }]
+    let result = this.getResult()
 
     return (
-      <Table columns={columns} dataSource={this.props.songs} pagination={this.pagination.call(this)} />
+      <Table columns={columns} dataSource={result.songs} pagination={this.pagination.call(this)} />
     )
   }
 

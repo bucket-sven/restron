@@ -25,7 +25,7 @@ export default class HomeView extends React.Component {
       //backgroundColor: '#cbacba'
     }
     */
-    let { songList, data, keyword, keywordChange } = this.props
+    let { songList, data, keywordChange } = this.props
     const style = {
       flexDirection: 'row',
       flex: 1,
@@ -36,10 +36,6 @@ export default class HomeView extends React.Component {
       marginLeft: 10,
       marginTop: 10,
       marginBottom: 10
-    }
-    let result = {}
-    if(data.result) {
-      result = data.result
     }
 
     return (
@@ -52,7 +48,7 @@ export default class HomeView extends React.Component {
               <Search data={data} style={searchStyle} onChange={keywordChange} callback={songList} />
             </div>
             <div>
-              <SongList songs={result.songs} onChanged={songList} data={data} total={result.songCount} />
+              <SongList onPageChanged={songList} data={data} />
             </div>
           </div>
         </div>
