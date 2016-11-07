@@ -12,12 +12,20 @@ function songList2(data) {
   }
 }
 
-export function songList(keyword) {
+export function songList(oldState) {
+  console.log(oldState);
+  console.log('search................');
   return dispatch => {
     return http.searchSong({
-      keyword: keyword}
-    ).then(data => {
-      let d = JSON.parse(data.toString()).result
+      keyword: oldState.keyword,
+      page: oldState.page
+    }).then(data => {
+      let res = JSON.parse(data.toString()).result
+      let d = {
+        page: oldState.page,
+        keyword: oldState.keyword,
+        result: res
+      }
       dispatch(songList2(d))
     })
   }
@@ -29,3 +37,5 @@ export function keywordChange(keyword) {
     keyword
   }
 }
+
+//export * from './PageActions'

@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux'
-import songList from './searchSong'
-import keywordChange from './keywordChange'
+import songList from './home'
 const rootReducer = combineReducers({
-  songList,
-  keywordChange
+  songList
 })
 
 export default rootReducer

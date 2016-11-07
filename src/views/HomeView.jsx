@@ -50,6 +50,10 @@ export default class HomeView extends React.Component {
       marginLeft: 10,
       marginTop: 10
     }
+    let result = {}
+    if(data.result) {
+      result = data.result
+    }
 
     return (
       <MuiThemeProvider>
@@ -58,11 +62,11 @@ export default class HomeView extends React.Component {
           <AppMenu />
           <div>
             <div style={{display: 'inline-flex'}}>
-              <Search style={searchStyle} defaultValue={keyword} onChange={keywordChange} callback={songList} />
+              <Search data={data} style={searchStyle} onChange={keywordChange} callback={songList} />
               <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
             <div>
-              <SongList songs={data.songs} total={data.songCount} />
+              <SongList songs={result.songs} data={data} total={result.songCount} />
             </div>
           </div>
         </div>
