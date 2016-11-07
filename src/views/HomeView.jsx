@@ -34,7 +34,8 @@ export default class HomeView extends React.Component {
     const searchStyle = {
       width: 200,
       marginLeft: 10,
-      marginTop: 10
+      marginTop: 10,
+      marginBottom: 10
     }
     let result = {}
     if(data.result) {
@@ -46,10 +47,9 @@ export default class HomeView extends React.Component {
         <div style={style}>
           <Header />
           <AppMenu />
-          <div>
-            <div style={{display: 'inline-flex'}}>
+          <div style={{minWidth: 615}}>
+            <div>
               <Search data={data} style={searchStyle} onChange={keywordChange} callback={songList} />
-              <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
             <div>
               <SongList songs={result.songs} onChanged={songList} data={data} total={result.songCount} />
@@ -64,8 +64,4 @@ export default class HomeView extends React.Component {
 HomeView.propTypes = {
   data: PropTypes.object.isRequired,
   songList: PropTypes.func.isRequired
-}
-
-HomeView.defaultProps = {
-  songs: []
 }

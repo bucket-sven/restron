@@ -12,6 +12,7 @@ export default class AppMenu extends Component {
       <Menu
         style={{width:240}}
         mode="inline"
+        theme="dark"
         >
         <Menu.Item>
           <a href='#/'>登录</a>
