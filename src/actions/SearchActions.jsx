@@ -2,7 +2,7 @@ import {
   SEARCH_SONG
 } from 'constants/actionTypes'
 
-export function searchSong(keyword) {
+export function songList(keyword) {
   return {
     type: SEARCH_SONG,
     keyword

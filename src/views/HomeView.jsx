@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import LoginView from 'views/LoginView'
@@ -39,8 +39,7 @@ export default class HomeView extends React.Component {
       //backgroundColor: '#cbacba'
     }
     */
-    const { searchSong, songs } = this.props
-    console.log('+++++++++++');
+    let { songList, songs } = this.props
     const style = {
       flexDirection: 'row',
       flex: 1,
@@ -58,7 +57,7 @@ export default class HomeView extends React.Component {
           <AppMenu />
           <div>
             <div style={{display: 'inline-flex'}}>
-              <Search style={searchStyle} callback={searchSong} />
+              <Search style={searchStyle} callback={songList} />
               <a href="#/" style={{marginLeft: 10, paddingTop: 10}}>Login</a>
             </div>
             <div>
@@ -69,4 +68,13 @@ export default class HomeView extends React.Component {
       </MuiThemeProvider>
     )
   }
+}
+
+HomeView.propTypes = {
+  songs: PropTypes.array.isRequired,
+  songList: PropTypes.func.isRequired
+}
+
+HomeView.defaultProps = {
+  songs: []
 }

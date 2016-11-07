@@ -38,8 +38,8 @@ var config = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react'],
-          plugins: ['transform-object-rest-spread']
+          presets: ['es2015', 'react', 'stage-0'],
+          plugins: ['transform-object-rest-spread', 'transform-runtime']
         }
       },
       {

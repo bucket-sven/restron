@@ -20,7 +20,7 @@ export default class SongList extends Component {
     }, {
       title: '专辑',
       dataIndex: 'album',
-      render: album => album.name
+      render: album => album ? album.name : ''
     }]
 
     return (

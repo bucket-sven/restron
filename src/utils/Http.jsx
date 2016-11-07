@@ -12,9 +12,19 @@ module.exports = {
     this.request(options, callback)
   },
   */
+
+  /*
   post: function(options, callback) {
     client.post(options.url, options, function(data, resp) {
       callback(data);
+    })
+  },
+  */
+  post: function(options) {
+    return new Promise((resolve, reject) => {
+      client.post(options.url, options, function(data, resp) {
+        resolve(data)
+      })
     })
   },
 

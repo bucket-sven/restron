@@ -25,6 +25,10 @@ export default class Search extends Component {
   handleSearch() {
     //console.log('handle search');
     let callback = this.props.callback
+    if(callback) {
+      callback(this.state.value)
+    }
+    /*
     let body = {
       s: this.state.value,
       type: 1
@@ -38,6 +42,7 @@ export default class Search extends Component {
       if (callback) callback(str)
       else console.log(str.result.songs[0]);
     })
+    */
   }
 
   render() {
