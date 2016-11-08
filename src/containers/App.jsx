@@ -24,10 +24,10 @@ class App extends Component {
             <Route path="/" component={LoginLayout} >
               <IndexRoute component={LoginView} />
               <Route path="login" component={LoginView} />
+              <Route path="register" component={RegisterView} />
             </Route>
             <Route path="/" component={HomeLayoutBinder}>
               <Route path="home" component={HomeViewBinder} />
-              <Route path="register" component={RegisterView} />
               <Route path="modify-passwd" component={PasswordView} />
             </Route>
           </Router>
