@@ -13,9 +13,9 @@ export default class Wrapper extends Component {
     return (
       <div className="rightWrap">
         <Menu mode="horizontal">
-          <SubMenu title={<span><Icon type="user" />Username</span>}>
+          <SubMenu title={<span><Icon type="user" />韩信</span>}>
             <Menu.Item key="setting:1">
-              <Link to="#/">Sign out</Link>
+              <Link to="/">注销</Link>
             </Menu.Item>
           </SubMenu>
         </Menu>

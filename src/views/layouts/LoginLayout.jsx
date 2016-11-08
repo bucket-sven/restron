@@ -7,7 +7,7 @@ export default class LoginLayout extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div className="rootApp">
+        <div>
           {this.props.children}
         </div>
       </MuiThemeProvider>

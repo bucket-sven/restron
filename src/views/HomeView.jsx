@@ -27,7 +27,6 @@ export default class HomeView extends React.Component {
     let { songList, data, keywordChange } = this.props
     const searchStyle = {
       width: 200,
-      marginLeft: 10,
       marginBottom: 10
     }
 

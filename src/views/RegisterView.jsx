@@ -25,12 +25,10 @@ class RegisterView extends React.Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="root">
-          <LogoWidget />
-          <RegisterForm />
-        </div>
-      </MuiThemeProvider>
+      <div className="root">
+        <LogoWidget />
+        <RegisterForm />
+      </div>
     )
   }
 

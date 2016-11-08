@@ -26,13 +26,11 @@ class LoginView extends React.Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="root">
-          <Header />
-          <LogoWidget />
-          <LoginForm />
-        </div>
-      </MuiThemeProvider>
+      <div className="root">
+        <Header />
+        <LogoWidget />
+        <LoginForm />
+      </div>
     )
   }
 
