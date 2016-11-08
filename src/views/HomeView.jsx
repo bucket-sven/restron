@@ -32,14 +32,11 @@ export default class HomeView extends React.Component {
       marginBottom: 10
     }
 
-    let children = (
+    return (
       <div>
         <Search placeholder="请输入关键字" data={data} style={searchStyle} onChange={keywordChange} callback={songList} />
         <SongList onPageChanged={songList} data={data} />
       </div>
-    )
-    return (
-      <HomeLayout children={children} />
     )
   }
 }

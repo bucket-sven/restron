@@ -5,11 +5,12 @@ import Wrapper from 'components/Wrapper'
 
 export default class HomeLayout extends Component {
   render() {
+    const { selectedKey, clickMenu } = this.props
     return (
       <MuiThemeProvider>
         <div className="rootApp">
           <div className="leftMenu">
-            <AppMenu />
+            <AppMenu onClick={clickMenu} selectedKey={selectedKey} />
           </div>
           <div className="mainBody">
             <div>

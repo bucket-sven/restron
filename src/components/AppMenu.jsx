@@ -9,23 +9,33 @@ export default class AppMenu extends Component {
     super(props)
   }
 
+  handleClick(e) {
+    let onClick = this.props.onClick
+    if(onClick) {
+      onClick(e.key)
+    }
+  }
+
   render() {
     return (
       <div>
         <img src="../public/img/logo.png" width="50" id="logo" />
         <Menu
           className="appMenu"
+          onClick={this.handleClick.bind(this)}
           mode="inline"
           theme="dark"
-          defaultSelectedKeys={['home']}
+          defaultSelectedKeys={[this.props.selectedKey]}
           defaultOpenKeys={['songList']}
           >
-          <Menu.Item>
-            <Link to="/">登录</Link>
-          </Menu.Item>
           <SubMenu title={<span><Icon type="appstore"/><span>歌单</span></span>} key='songList'>
             <Menu.Item key='home'>
               <Link to="/home">首页</Link>
+            </Menu.Item>
+          </SubMenu>
+          <SubMenu title={<span><Icon type="mail"/><span>认证</span></span>} key='authorize'>
+            <Menu.Item key='modify-passwd'>
+              <Link to="/modify-passwd">修改密码</Link>
             </Menu.Item>
           </SubMenu>
         </Menu>
