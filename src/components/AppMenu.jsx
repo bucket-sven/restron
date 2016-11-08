@@ -16,7 +16,7 @@ export default class AppMenu extends Component {
           mode="inline"
           theme="dark"
           defaultSelectedKeys={['home']}
-          openKeys={['songList']}
+          defaultOpenKeys={['songList']}
           >
           <Menu.Item>
             <a href='#/'>登录</a>
