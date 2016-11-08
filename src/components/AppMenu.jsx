@@ -21,11 +21,11 @@ export default class AppMenu extends Component {
           defaultOpenKeys={['songList']}
           >
           <Menu.Item>
-            <Link to="#/">登录</Link>
+            <Link to="/">登录</Link>
           </Menu.Item>
           <SubMenu title={<span><Icon type="appstore"/><span>歌单</span></span>} key='songList'>
             <Menu.Item key='home'>
-              <Link to="#/home">首页</Link>
+              <Link to="/home">首页</Link>
             </Menu.Item>
           </SubMenu>
         </Menu>
