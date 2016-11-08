@@ -28,7 +28,6 @@ export default class HomeView extends React.Component {
     const searchStyle = {
       width: 200,
       marginLeft: 10,
-      marginTop: 10,
       marginBottom: 10
     }
 
