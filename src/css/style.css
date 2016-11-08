@@ -66,3 +66,7 @@
 .right-box {
   margin-top: 10px;
 }
+
+.loginForm {
+  max-width: 300px;
+}

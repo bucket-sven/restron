@@ -7,6 +7,7 @@ require('css/header')
 require('css/style')
 
 import "antd/dist/antd.css"
+import "animate.css/animate.min.css"
 
 let env = process.env.NODE_ENV || 'production'
 
