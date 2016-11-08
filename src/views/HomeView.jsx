@@ -42,7 +42,7 @@ export default class HomeView extends React.Component {
 
     let children = (
       <div>
-        <Search data={data} style={searchStyle} onChange={keywordChange} callback={songList} />
+        <Search placeholder="请输入关键字" data={data} style={searchStyle} onChange={keywordChange} callback={songList} />
         <SongList onPageChanged={songList} data={data} />
       </div>
     )
