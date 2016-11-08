@@ -16,7 +16,22 @@ export default class AppMenu extends Component {
     }
   }
 
+  routeHash() {
+    return {
+      '#/home': {
+        openKey: 'songList',
+        selectedKey: 'home'
+      },
+      '#/modify-passwd': {
+        openKey: 'authorize',
+        selectedKey: 'modify-passwd'
+      }
+    }
+  }
+
   render() {
+    let path = window.location.hash
+    let keys = this.routeHash()[path]
     return (
       <div>
         <img src="../public/img/logo.png" width="50" id="logo" />
@@ -25,8 +40,8 @@ export default class AppMenu extends Component {
           onClick={this.handleClick.bind(this)}
           mode="inline"
           theme="dark"
-          defaultSelectedKeys={[this.props.selectedKey]}
-          defaultOpenKeys={['songList']}
+          defaultSelectedKeys={[keys.selectedKey]}
+          defaultOpenKeys={[keys.openKey]}
           >
           <SubMenu title={<span><Icon type="appstore"/><span>歌单</span></span>} key='songList'>
             <Menu.Item key='home'>
