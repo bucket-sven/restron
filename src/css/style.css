@@ -55,3 +55,10 @@
 .rightWrap .ant-menu-submenu {
   float: right;
 }
+
+.rootApp {
+  flex-direction: row;
+  flex: 1;
+  display: inline-flex;
+  height: 100%;
+}

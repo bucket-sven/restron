@@ -1,13 +1,11 @@
 import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import HomeLayout from 'views/layouts/HomeLayout'
 import LoginView from 'views/LoginView'
 import { redirect } from 'utils/Render'
 import Header from 'components/Header'
-import AppMenu from 'components/AppMenu'
 import Search from 'components/Search'
 import SongList from 'components/SongList'
-import Wrapper from 'components/Wrapper'
 
 export default class HomeView extends React.Component {
   constructor(props) {
@@ -27,12 +25,6 @@ export default class HomeView extends React.Component {
     }
     */
     let { songList, data, keywordChange } = this.props
-    const style = {
-      flexDirection: 'row',
-      flex: 1,
-      display: 'inline-flex',
-      height: '100%'
-    }
     const searchStyle = {
       width: 200,
       marginLeft: 10,
@@ -47,18 +39,7 @@ export default class HomeView extends React.Component {
       </div>
     )
     return (
-      <MuiThemeProvider>
-        <div style={style}>
-          <div className="leftMenu">
-            <AppMenu />
-          </div>
-          <div className="mainBody">
-            <div>
-              <Wrapper children={children} />
-            </div>
-          </div>
-        </div>
-      </MuiThemeProvider>
+      <HomeLayout children={children} />
     )
   }
 }
