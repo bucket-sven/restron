@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development electron .",
+    "prod": "NODE_ENV=production gulp start",
     "start": "gulp start",
     "watch": "gulp webpack",
     "pack": "NODE_ENV=production gulp build"

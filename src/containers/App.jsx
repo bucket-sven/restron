@@ -23,7 +23,9 @@ class App extends Component {
             <Route path="/register" component={RegisterView} />
           </Router>
         </Provider>
-        <DevTools store={store} />
+        {
+          process.env.NODE_ENV === 'development' ? <DevTools store={store} /> : ''
+        }
       </div>
     )
   }
