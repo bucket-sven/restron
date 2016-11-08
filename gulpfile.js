@@ -20,6 +20,7 @@ gulp.task('webpack', (cb) => {
       chunkModules: false
     }))
   })
+  cb()
 })
 
 gulp.task('start', (cb) => {
