@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Menu from 'antd/lib/menu'
+import Icon from 'antd/lib/icon'
+import { Link } from 'react-router'
 const SubMenu = Menu.SubMenu
 
 export default class AppMenu extends Component {
@@ -19,11 +21,11 @@ export default class AppMenu extends Component {
           defaultOpenKeys={['songList']}
           >
           <Menu.Item>
-            <a href='#/'>登录</a>
+            <Link to="#/">登录</Link>
           </Menu.Item>
-          <SubMenu title="歌单" key='songList'>
+          <SubMenu title={<span><Icon type="appstore"/><span>歌单</span></span>} key='songList'>
             <Menu.Item key='home'>
-              <a href='#/home'>首页</a>
+              <Link to="#/home">首页</Link>
             </Menu.Item>
           </SubMenu>
         </Menu>
