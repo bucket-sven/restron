@@ -15,12 +15,14 @@ export default class AppMenu extends Component {
           className="appMenu"
           mode="inline"
           theme="dark"
+          defaultSelectedKeys={['home']}
+          openKeys={['songList']}
           >
           <Menu.Item>
             <a href='#/'>登录</a>
           </Menu.Item>
-          <SubMenu title="歌单">
-            <Menu.Item>
+          <SubMenu title="歌单" key='songList'>
+            <Menu.Item key='home'>
               <a href='#/home'>首页</a>
             </Menu.Item>
           </SubMenu>
