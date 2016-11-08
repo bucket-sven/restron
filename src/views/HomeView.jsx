@@ -7,6 +7,7 @@ import Header from 'components/Header'
 import AppMenu from 'components/AppMenu'
 import Search from 'components/Search'
 import SongList from 'components/SongList'
+import Wrapper from 'components/Wrapper'
 
 export default class HomeView extends React.Component {
   constructor(props) {
@@ -29,7 +30,8 @@ export default class HomeView extends React.Component {
     const style = {
       flexDirection: 'row',
       flex: 1,
-      display: 'inline-flex'
+      display: 'inline-flex',
+      height: '100%'
     }
     const searchStyle = {
       width: 200,
@@ -38,17 +40,21 @@ export default class HomeView extends React.Component {
       marginBottom: 10
     }
 
+    let children = (
+      <div>
+        <Search data={data} style={searchStyle} onChange={keywordChange} callback={songList} />
+        <SongList onPageChanged={songList} data={data} />
+      </div>
+    )
     return (
       <MuiThemeProvider>
         <div style={style}>
-          <Header />
-          <AppMenu />
-          <div style={{minWidth: 615}}>
+          <div className="leftMenu">
+            <AppMenu />
+          </div>
+          <div className="mainBody">
             <div>
-              <Search data={data} style={searchStyle} onChange={keywordChange} callback={songList} />
-            </div>
-            <div>
-              <SongList onPageChanged={songList} data={data} />
+              <Wrapper children={children} />
             </div>
           </div>
         </div>
