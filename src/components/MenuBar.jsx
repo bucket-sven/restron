@@ -1,5 +1,7 @@
 const { Menu } = require('electron')
 
+let NODE_ENV = process.env.NODE_ENV
+
 const template = [
   {
     label: '编辑',
@@ -27,7 +29,42 @@ const template = [
     ]
   },
   {
-    label: '视图',
+    role: 'window',
+    label: '窗口',
+    submenu: [
+      {
+        role: 'minimize',
+        accelerator: 'CmdOrCtrl+M',
+        label: '最小化'
+      },
+      {
+        role: 'togglefullscreen',
+        label: '最大化'
+      },
+      {
+        role: 'close',
+        accelerator: 'CmdOrCtrl+W',
+        label: '关闭'
+      }
+    ]
+  },
+  {
+    role: 'help',
+    label: '帮助',
+    submenu: [
+      {
+        label: '更多',
+        click() {
+          require('electron').shell.openExternal('http://electron.atom.io')
+        }
+      }
+    ]
+  }
+]
+
+if (NODE_ENV === 'development') {
+  let devTool = {
+    label: '开发者工具',
     submenu: [
       {
         label: '重载',
@@ -45,40 +82,9 @@ const template = [
         }
       }
     ]
-  },
-  {
-    role: 'window',
-    label: '窗口',
-    submenu: [
-      {
-        role: 'minimize',
-        accelerator: 'CmdOrCtrl+M',
-        label: '最小化'
-      },
-      {
-        role: 'close',
-        accelerator: 'CmdOrCtrl+W',
-        label: '关闭窗口'
-      },
-      {
-        role: 'togglefullscreen',
-        label: '最大化'
-      }
-    ]
-  },
-  {
-    role: 'help',
-    label: '帮助',
-    submenu: [
-      {
-        label: '更多',
-        click() {
-          require('electron').shell.openExternal('http://electron.atom.io')
-        }
-      }
-    ]
   }
-]
+  template.splice(template.length - 1, 0, devTool)
+}
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
