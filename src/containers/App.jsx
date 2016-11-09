@@ -40,12 +40,4 @@ class App extends Component {
   }
 }
 
-/*
-export default connect(state => ({
-items: state.items,
-filter: state.filter
-}), dispatch => ({
-actions: bindActionCreators(Actions, dispatch)
-}))(App)
-*/
 export default App
