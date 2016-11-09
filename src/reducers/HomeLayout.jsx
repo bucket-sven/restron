@@ -4,9 +4,9 @@ import {
 
 export default function clickMenu(state='home', action) {
   switch (action.type) {
-    case CLICK_MENU:
-      return action.key
-    default:
-      return state
+  case CLICK_MENU:
+    return action.key
+  default:
+    return state
   }
 }
