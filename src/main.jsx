@@ -14,7 +14,7 @@ let env = process.env.NODE_ENV || 'production'
 class Main {
 
   constructor() {
-    this.iconPath = path.join(__dirname, "assets/img/guitar25.png");
+    this.iconPath = require("assets/img/guitar25.png");
     this.initApp()
   }
 
@@ -47,7 +47,7 @@ class Main {
   buildAppIcon() {
     if (process.platform === 'darwin') {
       app.dock.setIcon(this.iconPath)
-      this.appIcon = new Tray(path.join(__dirname, 'assets/img/tray.png'))
+      this.appIcon = new Tray(require('assets/img/tray.png'))
     } else {
       this.appIcon = new Tray(this.iconPath);
     }
