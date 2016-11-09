@@ -8,6 +8,7 @@ require('assets/css/style')
 
 import "antd/dist/antd.css"
 import "animate.css/animate.min.css"
+import { MenuBar } from 'components/MenuBar'
 
 let env = process.env.NODE_ENV || 'production'
 
