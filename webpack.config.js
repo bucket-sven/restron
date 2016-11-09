@@ -31,6 +31,13 @@ var config = {
   },
 
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }
+    ],
     loaders: [
       {
         //test: path.join(__dirname, 'es6'),
@@ -62,6 +69,10 @@ var config = {
   },
 
   watch: NODE_ENV === 'development',
+
+  eslint: {
+    configFile: './.eslintrc'
+  },
 
   plugins: [
     new HtmlWebpackPlugin({
