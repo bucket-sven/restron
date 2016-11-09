@@ -1,4 +1,4 @@
-module.exports = {
+let Urls = {
   HOST: 'localhost',
   REGIST_URL: '/api/v1/users/sign_up',
   LOGIN_URL: '/api/v1/users/sign_in',
@@ -11,3 +11,5 @@ module.exports = {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
 }
+
+export default Urls

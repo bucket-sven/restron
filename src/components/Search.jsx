@@ -3,10 +3,7 @@ import Input from 'antd/lib/input'
 import Button from 'antd/lib/button'
 import classNames from 'classnames'
 
-const http = require('utils/Http')
-const Urls = require('constants/Urls')
 const InputGroup = Input.Group
-const qs = require('querystring')
 
 export default class Search extends Component {
   constructor(props) {
@@ -36,21 +33,6 @@ export default class Search extends Component {
     if(callback) {
       callback(data)
     }
-    /*
-    let body = {
-      s: this.state.value,
-      type: 1
-    }
-    http.post({
-      url: Urls.NET_EASE_BASE_URL + Urls.SEARCH_MUSIC_URL,
-      headers: Urls.NET_EASE_HEADER,
-      data: qs.stringify(body)
-    }, function(data) {
-      let str = JSON.parse(data.toString())
-      if (callback) callback(str)
-      else console.log(str.result.songs[0]);
-    })
-    */
   }
 
   render() {

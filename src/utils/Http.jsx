@@ -1,9 +1,10 @@
 const Client = require('node-rest-client').Client
 const client = new Client()
-let Urls = require('constants/Urls')
+
+import Urls from 'constants/Urls'
 let qs = require('querystring')
 
-module.exports = {
+let Http = {
   get: function(options = {}) {
     return new Promise(function(resolve, reject) {
       client.get(options.url, options, (data, resp) => {
@@ -35,3 +36,5 @@ module.exports = {
     return this.post(opt)
   }
 }
+
+export default Http

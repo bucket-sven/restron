@@ -3,7 +3,7 @@ import {
   KEYWORD_CHANGE
 } from 'constants/actionTypes'
 
-var http = require('utils/Http')
+import Http from 'utils/Http'
 
 function searchRequest(data) {
   return {
@@ -14,7 +14,7 @@ function searchRequest(data) {
 
 export function songList(oldState) {
   return dispatch => {
-    return http.searchSong({
+    return Http.searchSong({
       keyword: oldState.keyword,
       page: oldState.page
     }).then(data => {
