@@ -3,8 +3,8 @@ const {app, Menu, BrowserWindow, ipcMain} = electron
 const Tray = electron.Tray
 const path = require('path');
 
-require('css/header')
-require('css/style')
+require('assets/css/header')
+require('assets/css/style')
 
 import "antd/dist/antd.css"
 import "animate.css/animate.min.css"
