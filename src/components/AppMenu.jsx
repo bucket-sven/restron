@@ -17,21 +17,27 @@ export default class AppMenu extends Component {
   }
 
   routeHash() {
+    // key为SubMenu的key值, value为Menu.Item的key值
     return {
-      '#/home': {
-        openKey: 'songList',
-        selectedKey: 'home'
-      },
-      '#/modify-passwd': {
-        openKey: 'authorize',
-        selectedKey: 'modify-passwd'
-      }
+      'songList': ['home'],
+      'authorize': ['modify-passwd']
     }
   }
 
+  getRouteSubKey(path) {
+    let keys = []
+    for(var subKey in this.routeHash()) {
+      if(this.routeHash()[subKey].includes(path)) {
+        keys.push(subKey)
+        break
+      }
+    }
+    return keys
+  }
+
   render() {
-    let path = window.location.hash
-    let keys = this.routeHash()[path]
+    let path = window.location.hash.substr(2)
+    let keys = this.getRouteSubKey(path)
     return (
       <div>
         <img src={require("assets/img/logo.png")} width="50" id="logo" />
@@ -40,8 +46,8 @@ export default class AppMenu extends Component {
           onClick={this.handleClick.bind(this)}
           mode="inline"
           theme="dark"
-          defaultSelectedKeys={[keys.selectedKey]}
-          defaultOpenKeys={[keys.openKey]}
+          defaultSelectedKeys={[path]}
+          defaultOpenKeys={keys}
           >
           <SubMenu title={<span><Icon type="appstore"/><span>歌单</span></span>} key='songList'>
             <Menu.Item key='home'>

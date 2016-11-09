@@ -49,8 +49,9 @@ var config = {
         //loader: 'style!css'
       },
       {
-        test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-        loader: 'url-loader?limit=50000&name=[path][name].[ext]'
+        //test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+        test: /\.(gif|jpg|png)/,
+        loader: 'file-loader?limit=500000&name=assets/img/[name].[ext]'
       }
     ]
   },
