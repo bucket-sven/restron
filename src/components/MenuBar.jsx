@@ -39,6 +39,7 @@ const template = [
       },
       {
         role: 'togglefullscreen',
+        accelerator: 'CmdOrCtrl+Alt+M',
         label: '最大化'
       },
       {
