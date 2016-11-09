@@ -9,8 +9,7 @@ export default function songList(state = {}, action) {
       // console.log('----------------------');
       // return [{id: 3, name: '123'}]
       // console.log(action.songs);
-      let data = action.data
-      return data
+      return action.data
     case KEYWORD_CHANGE:
       state.keyword = action.keyword
       return state

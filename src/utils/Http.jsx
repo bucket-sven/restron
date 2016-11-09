@@ -10,7 +10,7 @@ let Http = {
       client.get(options.url, options, (data, resp) => {
         resolve(data)
       })
-    });
+    })
   },
 
   post: function(options) {

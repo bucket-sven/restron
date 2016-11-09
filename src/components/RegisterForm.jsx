@@ -12,7 +12,7 @@ export default class LoginForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      password_confirmation: ''
+      passwordConfirmation: ''
     }
   }
 
@@ -35,11 +35,11 @@ export default class LoginForm extends React.Component {
         <TextField
           hintText="请再次输入密码"
           type="password"
-          value={this.state.password_confirmation}
-          onChange={(event) => {this.setState({password_confirmation: event.target.value})}}
+          value={this.state.passwordConfirmation}
+          onChange={(event) => {this.setState({passwordConfirmation: event.target.value})}}
           />
 
-        <div style={styles.buttons_container}>
+        <div style={styles.buttonsContainer}>
           <RaisedButton
             label="确定"
             primary={true}
@@ -64,7 +64,7 @@ export default class LoginForm extends React.Component {
 }
 
 var styles = {
-  buttons_container: {
+  buttonsContainer: {
     paddingTop: 30,
     width: '100%',
     display: 'flex',

@@ -41,5 +41,6 @@ export default class HomeView extends React.Component {
 
 HomeView.propTypes = {
   data: PropTypes.object.isRequired,
-  songList: PropTypes.func.isRequired
+  songList: PropTypes.func.isRequired,
+  keywordChange: PropTypes.func
 }

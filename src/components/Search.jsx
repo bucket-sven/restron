@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Input from 'antd/lib/input'
 import Button from 'antd/lib/button'
 import classNames from 'classnames'
@@ -57,4 +57,13 @@ export default class Search extends Component {
       </div>
     )
   }
+}
+
+Search.propTypes = {
+  onChange: PropTypes.func,
+  callback: PropTypes.func,
+  data: PropTypes.object,
+  style: PropTypes.object,
+  size: PropTypes.object,
+  placeholder: PropTypes.string
 }

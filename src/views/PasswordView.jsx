@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 import PasswordForm from 'components/PasswordForm'
 import HomeLayout from 'views/layouts/HomeLayout'
 

@@ -30,7 +30,7 @@ export default class LoginForm extends React.Component {
           value={this.state.password}
           onChange={(event) => {this.setState({password: event.target.value})}}
           />
-        <div style={styles.buttons_container}>
+        <div style={styles.buttonsContainer}>
           <RaisedButton
             label="登录"
             primary={true}
@@ -62,7 +62,7 @@ export default class LoginForm extends React.Component {
 }
 
 var styles = {
-  buttons_container: {
+  buttonsContainer: {
     paddingTop: 30,
     width: '100%',
     display: 'flex',

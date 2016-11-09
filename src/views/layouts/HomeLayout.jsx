@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppMenu from 'components/AppMenu'
 import Wrapper from 'components/Wrapper'
@@ -24,5 +24,7 @@ export default class HomeLayout extends Component {
 }
 
 HomeLayout.propTypes = {
-  children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired,
+  selectedKey: PropTypes.string.isRequired,
+  clickMenu: PropTypes.func
 }

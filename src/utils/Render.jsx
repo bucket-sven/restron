@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 
 let Render = {
   render: function(dom) {

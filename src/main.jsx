@@ -1,7 +1,7 @@
 const electron = require('electron')
 const {app, Menu, BrowserWindow, ipcMain} = electron
 const Tray = electron.Tray
-const path = require('path');
+const path = require('path')
 
 require('assets/css/header')
 require('assets/css/style')
@@ -15,7 +15,7 @@ let env = process.env.NODE_ENV || 'production'
 class Main {
 
   constructor() {
-    this.iconPath = path.join(__dirname, "../public/img/guitar.png");
+    this.iconPath = path.join(__dirname, "../public/img/guitar.png")
     this.initApp()
   }
 
@@ -34,7 +34,7 @@ class Main {
 
       self.mainWindow.loadURL('file://' + __dirname + '/index.html')
 
-      if (env == 'development') {
+      if (env === 'development') {
         self.mainWindow.webContents.openDevTools()
       }
 
@@ -50,7 +50,7 @@ class Main {
       app.dock.setIcon(this.iconPath)
       this.appIcon = new Tray(path.join(__dirname, '../public/img/tray.png'))
     } else {
-      this.appIcon = new Tray(this.iconPath);
+      this.appIcon = new Tray(this.iconPath)
     }
     const contextMenu = Menu.buildFromTemplate([
       {label: 'show', type: 'radio'},

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Menu from 'antd/lib/menu'
 import Icon from 'antd/lib/icon'
 import { Link } from 'react-router'
@@ -63,4 +63,8 @@ export default class AppMenu extends Component {
       </div>
     )
   }
+}
+
+AppMenu.propTypes = {
+  onClick: PropTypes.func
 }

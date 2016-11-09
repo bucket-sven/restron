@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Table from 'antd/lib/table'
 
 export default class SongList extends Component {
@@ -60,4 +60,9 @@ export default class SongList extends Component {
       </div>
     )
   }
+}
+
+SongList.propTypes = {
+  onPageChanged: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
 }

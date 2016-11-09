@@ -26,15 +26,13 @@ export default class Header extends React.Component {
       right: 0,
       top: 0
     }
-    /*
-    <header className="tabbar">
-      <a id="close"    href="javascript: void(0)" onClick={this.closeWindow}></a>
-      <a id="maximize" href="javascript: void(0)" onClick={this.maxiWindow}></a>
-      <a id="minimize" href="javascript: void(0)" onClick={this.miniWindow}></a>
-    </header>
-    */
+
     return (
-      <div></div>
+      <header className="tabbar">
+        <a id="close"    href="javascript: void(0)" onClick={this.closeWindow}></a>
+        <a id="maximize" href="javascript: void(0)" onClick={this.maxiWindow}></a>
+        <a id="minimize" href="javascript: void(0)" onClick={this.miniWindow}></a>
+      </header>
     )
   }
 
@@ -51,7 +49,7 @@ export default class Header extends React.Component {
       title: '确认关闭',
       message: '您确认要关闭吗?'
     }, (res) => {
-      if (res == 1)
+      if (res === 1)
         ipcRenderer.send('close-app', 'all')
     })
   }
