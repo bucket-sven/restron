@@ -34,7 +34,7 @@ export default class AppMenu extends Component {
     let keys = this.routeHash()[path]
     return (
       <div>
-        <img src="../public/img/logo.png" width="50" id="logo" />
+        <img src={require("assets/img/logo.png")} width="50" id="logo" />
         <Menu
           className="appMenu"
           onClick={this.handleClick.bind(this)}

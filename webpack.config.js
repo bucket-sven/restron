@@ -47,13 +47,11 @@ var config = {
         //exclude: /node_modules/,
         loader: ExtractTextPlugin.extract("style-loader","css-loader")
         //loader: 'style!css'
-      }
-      /*
+      },
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
         loader: 'url-loader?limit=50000&name=[path][name].[ext]'
       }
-      */
     ]
   },
 
