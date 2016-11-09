@@ -50,8 +50,8 @@ var config = {
       },
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-        //loader: 'file-loader?limit=500000&name=[path][name].[ext]',
-        loader: 'url-loader?limit=500000&name=[path][name].[ext]'
+        //loader: 'file-loader?limit=50000&name=[path][name].[ext]',
+        loader: 'url-loader?limit=50000&name=[path][name].[ext]'
       }
     ]
   },
