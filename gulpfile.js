@@ -14,7 +14,7 @@ gulp.task('webpack', (cb) => {
 })
 
 gulp.task('watch', (cb) => {
-  runWebpack('development')
+  runWebpack('development', true)
   cb()
 })
 
@@ -23,7 +23,7 @@ gulp.task('webpack-production', (cb) => {
   cb()
 })
 
-function runWebpack(env) {
+function runWebpack(env, watch = false) {
   /*
   webpack(config, function(err, stats) {
     if(err) throw new gutil.PluginError('webpack', err);
@@ -36,12 +36,12 @@ function runWebpack(env) {
     }))
   })
   */
-  let watch = ''
-  if(env === 'development') {
-    watch = '--watch'
+  let watchable = ''
+  if(watch) {
+    watchable = '--watch'
   }
-  shell.exec(`node_modules/webpack/bin/webpack.js --progress --colors ${watch} --config webpack-config/webpack.config.${env}.js`, (code, ouput) => {
-    console.log("Code: ", code);
+  shell.exec(`node_modules/webpack/bin/webpack.js --progress --colors ${watchable} --config webpack-config/webpack.config.${env}.js`, (code, ouput) => {
+    // console.log("Code: ", code);
   })
 }
 

@@ -25,10 +25,10 @@ module.exports = validate(merge(baseConfig, {
 
   target:　'electron-renderer',
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    // new webpack.DefinePlugin({
-    //   'process.env.NODE_ENV': JSON.stringify('development')
-    // })
-  ]
+  // plugins: [
+  //   new webpack.HotModuleReplacementPlugin(),
+  //   // new webpack.DefinePlugin({
+  //   //   'process.env.NODE_ENV': JSON.stringify('development')
+  //   // })
+  // ]
 }))
