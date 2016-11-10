@@ -38,7 +38,7 @@ class Main {
       self.mainWindow.loadURL(indexHtml)
 
       if (env === 'development') {
-        self.mainWindow.webContents.openDevTools()
+        // self.mainWindow.webContents.openDevTools()
       }
 
       self.mainWindow.on('closed', () => {
