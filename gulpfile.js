@@ -10,22 +10,19 @@ var electronInfo = require('electron/package.json')
 
 gulp.task('webpack', (cb) => {
   let webpackConfig = require('./webpack-config/webpack.config.development')
-  webpack(webpackConfig, function(err, stats) {
-    if(err) throw new gutil.PluginError('webpack', err);
-    gutil.log("[webpack]", stats.toString({
-      colors: true,
-      modules: false,
-      children: false,
-      chunks: false,
-      chunkModules: false
-    }))
-  })
+  runWebpack(webpackConfig)
   cb()
 })
 
-gulp.task('webpack-production', (cb) => {
-  let webpackConfig = require('./webpack-config/webpack.config.production')
-  webpack(webpackConfig, function(err, stats) {
+gulp.task('watch', (cb) => {
+  let webpackConfig = require('./webpack-config/webpack.config.development')
+  webpackConfig.watch = true
+  runWebpack(webpackConfig)
+  cb()
+})
+
+function runWebpack(config) {
+  webpack(config, function(err, stats) {
     if(err) throw new gutil.PluginError('webpack', err);
     gutil.log("[webpack]", stats.toString({
       colors: true,
@@ -35,6 +32,11 @@ gulp.task('webpack-production', (cb) => {
       chunkModules: false
     }))
   })
+}
+
+gulp.task('webpack-production', (cb) => {
+  let webpackConfig = require('./webpack-config/webpack.config.production')
+  runWebpack(webpackConfig)
   cb()
 })
 
@@ -45,12 +47,6 @@ gulp.task('start', (cb) => {
   gulp.src('')
       .pipe(envs)
       .pipe(electron(['--cli-arguments', '--another'], {cwd: __dirname}))
-
-  // gulp.watch(['./src/**/*.jsx', './src/**/*.js']).on('change', (e) => {
-  //   gulp.start('webpack')
-  // })
-  // gulp.watch("dist/**/*.js", electron.rerun);
-  // cb()
 })
 
 gulp.task('clean', (cb) => {

@@ -5,10 +5,10 @@
   "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development electron .",
+    "dev": "NODE_ENV=development gulp start",
     "prod": "NODE_ENV=production gulp start",
     "start": "gulp start",
-    "watch": "gulp webpack",
+    "watch": "gulp watch",
     "pack": "NODE_ENV=production gulp build",
     "eslint": "node_modules/eslint/bin/eslint.js --ext .jsx src"
   },
