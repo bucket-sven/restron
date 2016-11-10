@@ -9,19 +9,22 @@ var clean = require('gulp-clean')
 var electronInfo = require('electron/package.json')
 
 gulp.task('webpack', (cb) => {
-  let webpackConfig = require('./webpack-config/webpack.config.development')
-  runWebpack(webpackConfig)
+  runWebpack('development')
   cb()
 })
 
 gulp.task('watch', (cb) => {
-  let webpackConfig = require('./webpack-config/webpack.config.development')
-  webpackConfig.watch = true
-  runWebpack(webpackConfig)
+  runWebpack('development')
   cb()
 })
 
-function runWebpack(config) {
+gulp.task('webpack-production', (cb) => {
+  runWebpack('production')
+  cb()
+})
+
+function runWebpack(env) {
+  /*
   webpack(config, function(err, stats) {
     if(err) throw new gutil.PluginError('webpack', err);
     gutil.log("[webpack]", stats.toString({
@@ -32,13 +35,15 @@ function runWebpack(config) {
       chunkModules: false
     }))
   })
+  */
+  let watch = ''
+  if(env === 'development') {
+    watch = '--watch'
+  }
+  shell.exec(`node_modules/webpack/bin/webpack.js --progress --colors ${watch} --config webpack-config/webpack.config.${env}.js`, (code, ouput) => {
+    console.log("Code: ", code);
+  })
 }
-
-gulp.task('webpack-production', (cb) => {
-  let webpackConfig = require('./webpack-config/webpack.config.production')
-  runWebpack(webpackConfig)
-  cb()
-})
 
 gulp.task('start', (cb) => {
   const envs = env.set({
