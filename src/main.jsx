@@ -3,7 +3,6 @@ const {app, Menu, BrowserWindow, ipcMain} = electron
 const Tray = electron.Tray
 const path = require('path')
 
-require('assets/css/header')
 require('assets/css/style')
 
 import "antd/dist/antd.css"
@@ -33,7 +32,7 @@ class Main {
         icon: trayIconPath
       })
 
-      self.buildappTray()
+      self.buildAppTray()
 
       self.mainWindow.loadURL(indexHtml)
 
@@ -48,7 +47,7 @@ class Main {
     })
   }
 
-  buildappTray() {
+  buildAppTray() {
     if (process.platform === 'darwin') {
       this.appTray = new Tray(darwinTrayIconPath)
       app.dock.setIcon(trayIconPath)

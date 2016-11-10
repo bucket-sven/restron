@@ -50,6 +50,11 @@ var config = {
         }
       },
       {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader", "sass-loader")
+      },
+      {
         test: /\.css$/,
         //exclude: /node_modules/,
         loader: ExtractTextPlugin.extract("style-loader","css-loader")
@@ -65,7 +70,7 @@ var config = {
 
   resolve: {
     root: path.resolve(__dirname, 'src'),
-    extensions: ['', '.css', '.js', '.jsx']
+    extensions: ['', '.css', '.scss', '.js', '.jsx']
   },
 
   watch: NODE_ENV === 'development',
