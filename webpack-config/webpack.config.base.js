@@ -1,15 +1,13 @@
-var webpack = require('webpack')
-var path = require('path')
-var fs = require('fs')
+var webpack = require('webpack');
+var validate = require('webpack-validator');
+var path = require('path');
+var fs = require('fs');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var validate = require('webpack-validator')
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = {
-  devtool: 'source-map',
-
   // key是生成文件的路径, value是源文件路径
   entry: {
     'bundle': './src/entry.jsx',
@@ -26,7 +24,7 @@ var config = {
   target: 'atom',
 
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '..', 'dist'),
     filename: "[name].js"
   },
 
@@ -58,7 +56,6 @@ var config = {
         test: /\.(css)$/,
         //exclude: /node_modules/,
         loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-        //loader: 'style!css'
       },
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
@@ -69,11 +66,11 @@ var config = {
   },
 
   resolve: {
-    root: path.resolve(__dirname, 'src'),
+    root: path.join(__dirname, '..', 'src'),
     extensions: ['', '.css', '.scss', '.js', '.jsx']
   },
 
-  watch: NODE_ENV === 'development',
+  // watch: NODE_ENV === 'development',
 
   eslint: {
     configFile: './.eslintrc'
@@ -83,26 +80,13 @@ var config = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: false, //不添加entry列表里的文件到index.html
-      template: path.join(__dirname, "/src/index.html") //new 一个这个插件的实例，并传入相关的参数
+      template: path.join(__dirname, "../src/index.html") //new 一个这个插件的实例，并传入相关的参数
     }),
     new ExtractTextPlugin("css/style.css")
   ]
 
 }
 
-if (NODE_ENV == 'production') {
-  let conf = [new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false
-    }
-  }), new webpack.DefinePlugin({
-    "process.env": {
-      NODE_ENV: JSON.stringify(NODE_ENV)
-    }
-  })];
-  conf.forEach((c) => {
-    config.plugins.push(c)
-  })
-}
+let baseConfig = validate(config)
 
-module.exports = validate(config)
+module.exports = baseConfig
