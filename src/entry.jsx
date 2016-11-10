@@ -4,5 +4,5 @@ import { render }from 'utils/Render'
 import App from 'containers/App'
 
 injectTapEventPlugin() // listen on touch events
-//render(<LoginView />)
+// render(<LoginView />)
 render(<App />)

@@ -5,10 +5,10 @@ const AppTrayMenu = Menu.buildFromTemplate([
   {
     label: '退出',
     role: 'close',
-    //type: 'radio',
-    //checked: true
+    // type: 'radio',
+    // checked: true
   },
 ])
 
-//this.appIcon.setToolTip('This is my application');
+// this.appIcon.setToolTip('This is my application');
 export default AppTrayMenu

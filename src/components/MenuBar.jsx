@@ -76,7 +76,7 @@ if (NODE_ENV === 'development') {
       },
       {
         label: '开发工具切换',
-        //accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Control+Shift+I',
+        // accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Control+Shift+I',
         accelerator: 'CmdOrCtrl+T',
         click(item, focusedWindow) {
           if(focusedWindow) focusedWindow.webContents.toggleDevTools()

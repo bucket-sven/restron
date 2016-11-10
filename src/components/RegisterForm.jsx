@@ -58,7 +58,6 @@ export default class LoginForm extends React.Component {
 
   _handleRegistry() {}
   _handleCancel() {
-    //render(<LoginView />)
     redirect('#/')
   }
 }
@@ -79,7 +78,7 @@ var styles = {
     // right: 0,
     // bottom: 0,
     display: 'flex',
-    //flex: 1,
+    // flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'

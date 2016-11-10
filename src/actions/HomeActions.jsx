@@ -35,5 +35,3 @@ export function keywordChange(keyword) {
     keyword
   }
 }
-
-//export * from './PageActions'

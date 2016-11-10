@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-//const events = window.require('events')
-//const path = window.require('path')
-//const fs = window.require('fs')
+// const events = window.require('events')
+// const path = window.require('path')
+// const fs = window.require('fs')
 
 const electron = window.require('electron')
 const {ipcRenderer, shell} = electron

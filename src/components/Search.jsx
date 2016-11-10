@@ -26,7 +26,7 @@ export default class Search extends Component {
   }
 
   handleSearch() {
-    //console.log('handle search');
+    // console.log('handle search');
     let callback = this.props.callback
     let data = this.props.data
     data.page = 1

@@ -52,7 +52,6 @@ export default class LoginForm extends React.Component {
   }
   _handleLogin() {
     redirect('#/home')
-    //Render.render(<Home />)
     // MessageBox.info({
     //   message: 'Test'
     // }, (res) => {
@@ -71,13 +70,7 @@ var styles = {
     justifyContent: 'center'
   },
   root: {
-    // position: 'absolute',
-    // left: 0,
-    // top: 0,
-    // right: 0,
-    // bottom: 0,
     display: 'flex',
-    //flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'

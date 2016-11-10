@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-//import * as Actions from '../actions'
+// import * as Actions from '../actions'
 import { bindActionCreators } from 'redux'
 import { Router, IndexRoute, Route, hashHistory } from 'react-router'
 import LoginView from 'views/LoginView'

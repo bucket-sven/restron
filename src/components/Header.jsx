@@ -9,7 +9,7 @@ const iconStyles = {
   marginRight: 24,
   width: 10,
   height: 10
-  //WebkitAppRegion: 'no-drag'
+  // WebkitAppRegion: 'no-drag'
 }
 
 export default class Header extends React.Component {
