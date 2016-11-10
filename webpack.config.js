@@ -52,12 +52,12 @@ var config = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader", "sass-loader")
+        loader: ExtractTextPlugin.extract("style", "css!sass")
       },
       {
-        test: /\.css$/,
+        test: /\.(css)$/,
         //exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract("style-loader","css-loader")
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
         //loader: 'style!css'
       },
       {
