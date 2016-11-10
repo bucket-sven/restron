@@ -9,30 +9,33 @@ require('assets/css/style')
 import "antd/dist/antd.css"
 import "animate.css/animate.min.css"
 import { MenuBar } from 'components/MenuBar'
+import AppTrayMenu from 'components/AppTrayMenu'
 
-let env = process.env.NODE_ENV || 'production'
+const env = process.env.NODE_ENV || 'production'
+const indexHtml          = `file://${__dirname}/index.html`
+const trayIconPath       = path.join(__dirname, '../public/img/guitar.png')
+const darwinTrayIconPath = path.join(__dirname, '../public/img/tray.png')
 
 class Main {
 
   constructor() {
-    this.iconPath = path.join(__dirname, "../public/img/guitar.png")
     this.initApp()
   }
 
   initApp() {
-    let self = this
+    const self = this
     app.on('ready', function() {
       self.mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         //transparent: true,
         //frame: false,
-        icon: self.iconPath
+        icon: trayIconPath
       })
 
-      self.buildAppIcon()
+      self.buildappTray()
 
-      self.mainWindow.loadURL('file://' + __dirname + '/index.html')
+      self.mainWindow.loadURL(indexHtml)
 
       if (env === 'development') {
         self.mainWindow.webContents.openDevTools()
@@ -45,23 +48,14 @@ class Main {
     })
   }
 
-  buildAppIcon() {
+  buildappTray() {
     if (process.platform === 'darwin') {
-      app.dock.setIcon(this.iconPath)
-      this.appIcon = new Tray(path.join(__dirname, '../public/img/tray.png'))
+      this.appTray = new Tray(darwinTrayIconPath)
+      app.dock.setIcon(trayIconPath)
     } else {
-      this.appIcon = new Tray(this.iconPath)
+      this.appTray = new Tray(trayIconPath)
     }
-    const contextMenu = Menu.buildFromTemplate([
-      {label: 'show', type: 'radio'},
-      {label: 'minimize', type: 'radio'},
-      {label: 'click', type: 'radio', checked: true},
-    ])
-    //this.appIcon.setToolTip('This is my application');
-    this.appIcon.setContextMenu(contextMenu)
-    // appIcon.on('click', () => {
-    //   mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
-    // })
+    this.appTray.setContextMenu(AppTrayMenu)
   }
 
   initEvents() {
