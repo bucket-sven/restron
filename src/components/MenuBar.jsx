@@ -63,6 +63,42 @@ const template = [
   }
 ]
 
+if(process.platform === 'darwin') {
+  template.unshift({
+    label: 'Restron',
+    submenu: [
+      {
+        role: 'about'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'services',
+        submenu: []
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'hide'
+      },
+      {
+        role: 'hideothers'
+      },
+      {
+        role: 'unhide'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'quit'
+      }
+    ]
+  })
+}
+
 if (NODE_ENV === 'development') {
   let devTool = {
     label: '开发者工具',
@@ -88,5 +124,5 @@ if (NODE_ENV === 'development') {
 }
 
 const menu = Menu.buildFromTemplate(template)
-Menu.setApplicationMenu(menu)
-export { Menu as MenuBar }
+// Menu.setApplicationMenu(menu)
+export default menu

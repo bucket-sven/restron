@@ -7,7 +7,7 @@ require('assets/css/style.scss')
 
 import "antd/dist/antd.css"
 import "animate.css/animate.min.css"
-import { MenuBar } from 'components/MenuBar'
+import menu from 'components/MenuBar'
 import AppTrayMenu from 'components/AppTrayMenu'
 
 const env = process.env.NODE_ENV || 'production'
@@ -38,6 +38,12 @@ class Main {
 
       if (env === 'development') {
         // self.mainWindow.webContents.openDevTools()
+      }
+
+      if (process.platform === 'darwin') {
+        app.setApplicationMenu(menu)
+      } else {
+        Menu.setApplicationMenu(menu)
       }
 
       self.mainWindow.on('closed', () => {
