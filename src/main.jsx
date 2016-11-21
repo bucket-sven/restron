@@ -12,7 +12,7 @@ import AppTrayMenu from 'components/AppTrayMenu'
 
 const env = process.env.NODE_ENV || 'production'
 const indexHtml          = `file://${__dirname}/index.html`
-const trayIconPath       = path.join(__dirname, '../public/img/guitar.png')
+const trayIconPath       = path.join(__dirname, '../public/img/logo.png')
 const darwinTrayIconPath = path.join(__dirname, '../public/img/tray.png')
 
 class Main {
