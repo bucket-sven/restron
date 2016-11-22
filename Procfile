@@ -1,2 +1,2 @@
-watch: npm run watch
+watch: gulp watch
 run: gulp start
