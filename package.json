@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development gulp start",
     "prod": "NODE_ENV=production gulp start",
-    "start": "gulp start",
-    "watch": "gulp watch",
+    "start": "node_modules/foreman/nf.js start",
     "pack": "NODE_ENV=production gulp build",
     "eslint": "node_modules/eslint/bin/eslint.js --ext .jsx src"
   },
@@ -62,6 +61,7 @@
     "eslint-plugin-react": "^6.6.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "foreman": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-env": "^0.4.0",
