@@ -6,8 +6,8 @@ import ReactDOM from 'react-dom'
 // const fs = window.require('fs')
 
 const electron = window.require('electron')
-const {ipcRenderer, shell} = electron
-const {dialog} = electron.remote
+const { ipcRenderer, shell } = electron
+const { dialog } = electron.remote
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'

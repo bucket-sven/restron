@@ -10,7 +10,7 @@ var NODE_ENV = process.env.NODE_ENV || 'development';
 var config = {
   // key是生成文件的路径, value是源文件路径
   entry: {
-    'bundle': './src/entry.jsx',
+    'bundle': './src/index.jsx',
     'main': './src/main.jsx'
   },
 
