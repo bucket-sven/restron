@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom'
+import { hashHistory } from 'react-router'
 
 let Render = {
   render: function(dom) {
@@ -8,7 +9,8 @@ let Render = {
     )
   },
   redirect: function(path) {
-    window.location.href = path
+    // window.location.href = path
+    hashHistory.push(path)
   }
 }
 

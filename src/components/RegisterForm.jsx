@@ -58,7 +58,7 @@ export default class LoginForm extends React.Component {
 
   _handleRegistry() {}
   _handleCancel() {
-    redirect('#/')
+    redirect('/')
   }
 }
 

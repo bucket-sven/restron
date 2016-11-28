@@ -48,10 +48,10 @@ export default class LoginForm extends React.Component {
   }
 
   _handleRegistry() {
-    redirect('#/register')
+    redirect('/register')
   }
   _handleLogin() {
-    redirect('#/home')
+    redirect('/home')
     // MessageBox.info({
     //   message: 'Test'
     // }, (res) => {
