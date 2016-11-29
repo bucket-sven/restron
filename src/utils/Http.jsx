@@ -2,7 +2,7 @@ const Client = require('node-rest-client').Client
 const client = new Client()
 
 import Urls from 'constants/Urls'
-let qs = require('querystring')
+const qs = require('querystring')
 
 let Http = {
   get: function(options = {}) {

@@ -1,5 +1,5 @@
 const electron = window.require('electron')
-const {dialog} = electron.remote
+const { dialog } = electron.remote
 // const merge = window.require('merge')
 
 let MessageBox = {
