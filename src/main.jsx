@@ -1,9 +1,9 @@
 import path from 'path'
 import { app, Menu, BrowserWindow, ipcMain, Tray } from 'electron'
 
-import "assets/css/style.scss"
-import "antd/dist/antd.css"
-import "animate.css/animate.min.css"
+import 'assets/css/style.scss'
+import 'antd/dist/antd.css'
+import 'animate.css/animate.min.css'
 import menu from 'components/MenuBar'
 import AppTrayMenu from 'components/AppTrayMenu'
 
