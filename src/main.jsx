@@ -1,10 +1,7 @@
-const electron = require('electron')
-const {app, Menu, BrowserWindow, ipcMain} = electron
-const Tray = electron.Tray
-const path = require('path')
+import path from 'path'
+import { app, Menu, BrowserWindow, ipcMain, Tray } from 'electron'
 
-require('assets/css/style.scss')
-
+import "assets/css/style.scss"
 import "antd/dist/antd.css"
 import "animate.css/animate.min.css"
 import menu from 'components/MenuBar'
